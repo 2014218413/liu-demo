@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+</head>
+<body>
+<div id="wrapper" style="left:0;">
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="headSculpture">
+            <img src="assets/images/bishee.png" alt="">
+            <br/>
+            <span>用户:</span><span id="span01"></span>
+        </div>
+        <div class="option">
+            <ul>
+                <li><img src="assets/images/home.png" alt="">
+                    <p>首页</a></p>
+                </li>
+                <li><img src="assets/images/works.png" alt="">
+                    <p id="myProduct" onclick="f1()">我的商品</p>
+                </li>
+                <li><img src="assets/images/release.png" alt="">
+                    <p id="pullProduct">发布商品</p>
+                </li>
+                <li><img src="assets/images/collection.png" alt="">
+                    <p id="loveProduct">我的收藏</p>
+                </li>
+                <li><img src="assets/images/setup.png" alt="">
+                    <p id="structure">设置</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 侧边栏按钮 -->
+
+    <!-- 内容区域 -->
+    <div class="banner">
+        <ul class="layui-nav">
+            <li class="layui-nav-item" id="li01">个人中心</li>
+            <li class="layui-nav-item"><a href="">悬赏任务</a></li>
+            <li class="layui-nav-item"><a href="">校园八卦</a></li>
+            <li class="layui-nav-item"><a href="">人力资源模块</a></li>
+            <li class="layui-nav-item"><a href="">二手货物市场</a></li>
+            <li class="layui-nav-item">物品交换市场</li>
+            <li class="layui-nav-item"><a href="">失物模块</a></li>
+
+        </ul>
+    </div>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/sidebar.js"></script>
+</body>
+<script>
+    $(function () {
+        var canshu = window.location.search;
+        var a = canshu.substring(4,canshu.length);
+        alert(a);
+        $('#span01').html(a);
+        $('#pullProduct').on('click',function () {
+            var userName = $('#span01').html();
+            window.location.href="http://localhost:8099/pull?投机者="+userName;
+        });
+    });
+
+    function f1() {
+        window.location.href="http://localhost:8099/h"
+        // window.open("http://www.baidu.com")   新窗口
+    }
+
+    layui.use('element',function () {
+        var element = layui.element;
+    });
+</script>
+</html>

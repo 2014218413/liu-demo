@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b8fa0d27-395d-4bb5-ae36-7beeb5a47bf8" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="GONGNENG: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="LOGIN: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="liushengen@120.26.56.127" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="liushengen@120.26.56.127" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="liushengen@120.26.56.127" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="liushengen: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/springCloudConfig" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1V6lTVZSMhlkhUCoJkdLW2qZCgB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="derby&#10;oracle&#10;mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\images" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\css" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\js" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="DD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="liu_project.controller.DD" />
+      <module name="liu_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="liu_project.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="qr.Demo" />
+      <module name="liu_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="qr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QRCode.createCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="liu_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="qr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="qr" />
+      <option name="MAIN_CLASS_NAME" value="qr.QRCode" />
+      <option name="METHOD_NAME" value="createCode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="liu_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="liu_project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="liu_project.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.DD" />
+        <item itemvalue="Application.Demo" />
+        <item itemvalue="JUnit.QRCode.createCode" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@58270a85" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@58270a85" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@17fbf5c5" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8fa0d27-395d-4bb5-ae36-7beeb5a47bf8" name="Default Changelist" comment="" />
+      <created>1576581433303</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576581433303</updated>
+      <workItem from="1576581436770" duration="4742000" />
+      <workItem from="1576645439954" duration="962000" />
+      <workItem from="1576650694218" duration="16640000" />
+      <workItem from="1576676428540" duration="615000" />
+      <workItem from="1576726336404" duration="4880000" />
+      <workItem from="1576754205169" duration="1342000" />
+      <workItem from="1576841953614" duration="3729000" />
+      <workItem from="1576905277143" duration="7372000" />
+      <workItem from="1576988455785" duration="2689000" />
+      <workItem from="1577082490751" duration="1211000" />
+      <workItem from="1577248153657" duration="1575000" />
+      <workItem from="1577286305209" duration="597000" />
+      <workItem from="1577333623862" duration="1663000" />
+      <workItem from="1577417731237" duration="8304000" />
+      <workItem from="1577706664096" duration="2485000" />
+      <workItem from="1577792417188" duration="1657000" />
+      <workItem from="1577852300574" duration="18041000" />
+      <workItem from="1577948876528" duration="593000" />
+      <workItem from="1578025494489" duration="488000" />
+      <workItem from="1578026181120" duration="1601000" />
+      <workItem from="1578112310970" duration="2000" />
+      <workItem from="1578112648477" duration="3000" />
+      <workItem from="1578112937512" duration="26000" />
+      <workItem from="1578113258146" duration="16000" />
+      <workItem from="1578113812563" duration="1000" />
+      <workItem from="1578113850675" duration="906000" />
+      <workItem from="1578131648731" duration="1671000" />
+      <workItem from="1578192208674" duration="1300000" />
+      <workItem from="1578219147014" duration="1204000" />
+      <workItem from="1578285124276" duration="1771000" />
+      <workItem from="1578372490772" duration="609000" />
+      <workItem from="1578391124922" duration="606000" />
+      <workItem from="1578453838500" duration="1164000" />
+      <workItem from="1578456008898" duration="611000" />
+      <workItem from="1578493179147" duration="707000" />
+      <workItem from="1578565909866" duration="2624000" />
+      <workItem from="1578990758492" duration="2852000" />
+      <workItem from="1579080684574" duration="2654000" />
+      <workItem from="1579184570638" duration="133000" />
+      <workItem from="1579407668404" duration="4791000" />
+      <workItem from="1580006489998" duration="6581000" />
+      <workItem from="1580107143871" duration="4426000" />
+      <workItem from="1580113833577" duration="17670000" />
+      <workItem from="1580134646503" duration="62000" />
+      <workItem from="1580182477662" duration="7175000" />
+      <workItem from="1580191521018" duration="4328000" />
+      <workItem from="1580276459654" duration="2584000" />
+      <workItem from="1580359136661" duration="2105000" />
+      <workItem from="1580455081422" duration="19418000" />
+      <workItem from="1580480846985" duration="69000" />
+      <workItem from="1580534707862" duration="272000" />
+      <workItem from="1580535040309" duration="8623000" />
+      <workItem from="1580629682317" duration="3787000" />
+      <workItem from="1580715714009" duration="2939000" />
+      <workItem from="1580728074153" duration="604000" />
+      <workItem from="1580790486894" duration="3130000" />
+      <workItem from="1580803416670" duration="3676000" />
+      <workItem from="1580822521669" duration="347000" />
+      <workItem from="1580822915910" duration="126000" />
+      <workItem from="1580880545406" duration="231000" />
+      <workItem from="1580880831393" duration="1407000" />
+      <workItem from="1580966222060" duration="4912000" />
+      <workItem from="1580975108171" duration="5237000" />
+      <workItem from="1581049640032" duration="1217000" />
+      <workItem from="1581332302257" duration="10766000" />
+      <workItem from="1581347029487" duration="324000" />
+      <workItem from="1581389236497" duration="1723000" />
+      <workItem from="1581391450864" duration="29555000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
