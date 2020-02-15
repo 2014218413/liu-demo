@@ -59,13 +59,19 @@
 </body>
 <script>
     $(function () {
-        var canshu = window.location.search;
-        var a = canshu.substring(4,canshu.length);
-        alert(a);
-        $('#span01').html(a);
+        $.ajax({
+           url:"http://localhost:8099/n",
+            success:function (data) {
+                $('#span01').html(data);
+            },
+            error:function () {
+                alert("服务器出错")
+            }
+
+        });
+
         $('#pullProduct').on('click',function () {
-            var userName = $('#span01').html();
-            window.location.href="http://localhost:8099/pull?投机者="+userName;
+            window.location.href="http://localhost:8099/pull?投机者";
         });
     });
 

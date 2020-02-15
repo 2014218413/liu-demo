@@ -491,12 +491,14 @@
 <script>
     window.onload = check();
 
-    layui.use(['form','laydate'],function () {
-        var form = layui.form
-            ,laydate = layui.laydate;
-        laydate.render({
-            elem:'#date'
-        });
+    layui.use(['form','laydate','layer'],function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        /*
+        * layui对下拉框等组件会默认进行隐藏，所以要开启渲染 from.render();
+        * 但是此处要渲染的select在layer的弹出层中，所以form.render 要加在layer中----------》见下
+        * */
+
         //这里是监测  标有lay-filter：Demo 的按钮点击后，就会触发这里
         form.on('submit(Demo)',function (data) {
             alert("注册成功------------------------");
@@ -566,19 +568,29 @@
                     ,
                     btnAlign: 'c'
                     ,
+                    success:function(){
+                        form.render();
+                    }
+                    ,
                     moveType: 1 //拖拽模式，0或者1
                     ,
                     content: '<form method="post" action="http://localhost:8099/register" class="layui-form"><div class="layui-form-item">\n' +
-                        '                                <br><input id="username" type="text" name="username" class="form-control" placeholder="Your Username" lay-verify="tt" >\n' +
+                        '                                <br><input id="username" type="text" name="username" class="form-control" placeholder="本人学号" lay-verify="tt" >\n' +
                         '                                </div>\n' +
                         '                                <div class="layui-form-item">\n' +
-                        '                                <br><input id="password" type="password" name="password" class="form-control" placeholder="Your Password" lay-verify="pass">\n' +
+                        '                                <br><input id="password" type="password" name="password" class="form-control" placeholder="设置密码" lay-verify="pass">\n' +
+                        '                                </div>\n' + '                                ' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <select name="grade" lay-verify="required" id="selectGrade"><option value="">所在年级</option><option>2019级</option><option>2018级</option><option>2017级</option><option>2016级</option></select>\n' +
                         '                                </div>\n' +
                         '                                <div class="layui-form-item">\n' +
-                        '                                <br><input id="phone" type="tel" name="phone" class="form-control" placeholder="Your Phone" lay-verify="required|phone">\n' +
+                        '                                <br><input id="banji" type="text" name="banji" class="form-control" placeholder="所在班级" lay-verify="required">\n' +
                         '                                </div>\n' +
                         '                                <div class="layui-form-item">\n' +
-                        '                                <br><input id="email" type="text" name="email" class="form-control" placeholder="Your Email" lay-verify="email">\n' +
+                        '                                <br><input id="phone" type="tel" name="phone" class="form-control" placeholder="手机号码" lay-verify="required|phone">\n' +
+                        '                                </div>\n' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <br><input id="email" type="text" name="email" class="form-control" placeholder="本人邮箱" lay-verify="email">\n' +
                         '                                </div>\n' +
                         '                                <div class="layui-form-item">\n' +
                         '                                <br><textarea name="note"  id="other" placeholder="请在这里填写宿舍地址和其他关于您的详细介绍....." style="color: black"></textarea>\n' +

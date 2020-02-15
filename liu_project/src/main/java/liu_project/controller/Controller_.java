@@ -1,10 +1,6 @@
 package liu_project.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.mysql.cj.CharsetMapping;
 import liu_project.image.ImgResult;
 import liu_project.mapper.UserMapper;
 import liu_project.tables.Gongneng;
@@ -14,13 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedOutputStream;
+import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -36,32 +31,47 @@ import java.util.UUID;
  * */
 @Controller
 public class Controller_ {
-    static String LOCK_;
     //Mybatis的操作
     @Autowired
     UserMapper userMapper;
     //注册
     @ResponseBody
     @RequestMapping("/register")
-    public void register(String username, String password, String email, String phone, String other, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
+    public void register(String username, String password, String email, String phone, String other, String grade,String banji,HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
         UUID tidai = UUID.randomUUID();
-        userMapper.insertUser(1,""+username,""+password,""+email,""+phone,""+other,""+tidai);
+        userMapper.insertUser(1,""+username,""+password,""+email,""+phone,""+other,""+tidai,""+grade,""+banji);
 
         httpServletResponse.sendRedirect("/");
     }
-    //验证登录
+    /*
+    *验证登录
+    * 可以设置一个专门的返回username的访问路径（使用session里面的）
+    * 然后在网页的js里面通过ajax判断  把这个function放在render里面
+    * 如果if里面判断的session的username为空，跳转.
+    */
     @ResponseBody
     @RequestMapping("/login")
-    public void login(String username,String password,HttpServletResponse httpServletResponse,HttpServletRequest httpServletRequest) throws IOException, InterruptedException {
-        String tidai = userMapper.selectUser(""+username,""+password);
-        if (tidai != null){
-            LOCK_ = UUID.randomUUID().toString();
-            System.out.println(LOCK_);
-            httpServletResponse.sendRedirect("/p?ID="+username);
+    public void login(HttpSession session,String username, String password, HttpServletResponse httpServletResponse, HttpServletRequest httpServletRequest) throws IOException {
+        try {
+            int state = userMapper.selectUser(""+username,""+password);
+            if (state == 1){
+                //session
+                session.setAttribute("username",username);
+                session.setAttribute("password",password);
+                session.setMaxInactiveInterval(60*60*2);
+                //Cookie
+                Cookie cookie = new Cookie("username",username);
+                httpServletResponse.addCookie(cookie);
+                httpServletResponse.sendRedirect("/p");
+            }
+            else {
+                httpServletResponse.sendRedirect("/?error=1");
+            }
         }
-        else {
+        catch (Exception e) {
             httpServletResponse.sendRedirect("/?error=1");
         }
+
     }
     /*
     * 实现了分页
@@ -78,14 +88,21 @@ public class Controller_ {
         return userMapper.findAll().size();
     }
 
+    @ResponseBody
+    @RequestMapping("/n")
+    public String getName(HttpSession httpSession) {
+        System.out.println(httpSession.getAttribute("username"));
+        return (String) httpSession.getAttribute("username");
+    }
+
 
     @RequestMapping("/p")
-    public String person () {
-        if (LOCK_ == null) {
+    public String person (HttpSession session,HttpServletRequest httpServletRequest) {
+        if (session.getAttribute("username") == null) {
             return "error/error";
         }
         else {
-            LOCK_ = null;
+            Cookie[] cookies = httpServletRequest.getCookies();
             return "person";
         }
     }
@@ -110,7 +127,8 @@ public class Controller_ {
             String uuid = UUID.randomUUID().toString();
             String newName = uuid + extName;
             // 4.获取要保存的路径文件夹
-            String realPath = System.getProperty("user.dir");
+            //String realPath = System.getProperty("user.dir");
+            String realPath = "D:\\Idea_mingbaile\\liu_project";
             // 5.保存图片
             desFilePath = realPath + "\\src\\main\\resources\\static\\personImages\\" + newName;
             File desFile = new File(desFilePath);
@@ -136,11 +154,24 @@ public class Controller_ {
         }
     }
 
-
+    /*
+    * 发布任务模块的
+    * */
     @ResponseBody
     @RequestMapping(value="saveGoods")
-    private void saveImgInfo(@RequestParam("smallTit") String smallTit,@RequestParam("modules") String modules,@RequestParam("imgUrls") String imgUrls){
-        System.out.println(smallTit+""+modules+""+imgUrls);
+    private void saveImgInfo(@RequestParam("smallTit") String smallTit, @RequestParam("modules") String modules, @RequestParam("imgUrls") String imgUrls, @RequestParam("user") String user, @RequestParam("number") int number, @RequestParam("date") String time){
+
+        switch(modules) {
+            case "悬赏任务":
+                userMapper.insertOne01(user,smallTit,number,imgUrls,modules,time);
+            break;
+            case "二手货物出售":
+            break;
+            case "物品交换":
+            break;
+            case "人力资源":
+            break;
+        }
     }
     /*
     * 可以选择的任务列表
@@ -152,7 +183,8 @@ public class Controller_ {
     }
 
     @RequestMapping("pull")
-    public String userName(@RequestParam(value = "投机者") String userName) {
+    public String userName(@RequestParam(value = "投机者") String userName,HttpSession httpSession) {
+        System.out.println(httpSession.getAttribute("username"));
         System.out.println(userName);
         return "/person/pullProduct";
     }

@@ -12,7 +12,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">发布者:</label>
         <div class="layui-input-block">
-            <input type="text" class="layui-input layui-disabled" readonly id="inputUser">
+            <input type="text" class="layui-input layui-disabled" readonly id="inputUser" name="user">
         </div>
 
     </div>
@@ -49,7 +49,7 @@
         <label class="layui-form-label">商品图片上传</label>
         <div class="layui-input-block">
             <button type="button" class="layui-btn" id="test1">
-                <i class="layui-icon">&#xe67c;</i>选择图片（最多选择20张，单张图片最大为10M）
+                <i class="layui-icon">&#xe67c;</i>选择图片（最多选择3张，单张图片最大为1M）
             </button>
             <button type="button" class="layui-btn" id="test9">开始上传</button>
             <button type="button" class="layui-btn" id="cleanImgs" onclick="cleanImgsPreview()">
@@ -76,6 +76,7 @@
     var success=0;
     var fail=0;
     var imgurls="";
+    var canshu = window.location.search;
     /*
     * 动态获取
     * */
@@ -95,10 +96,16 @@
         });
     };
     $(function (){
-        var canshu = window.location.search;
-        var a = canshu.split('=');
-        alert(a[1]);
-        $('#inputUser').val(a[1]);
+        $.ajax({
+            url:"http://localhost:8099/n",
+            success:function (data) {
+                $('#inputUser').val(data);
+            },
+            error:function () {
+                alert("服务器出错")
+            }
+
+        });
         var imgsName="";
         layui.use(['upload','layer','form','laydate'],function() {
 
@@ -118,9 +125,9 @@
                 multiple: true,
                 auto:false,
 //			上传的单个图片大小
-                size:10240,
+                size:1024,
 //			最多上传的数量
-                number:20,
+                number:3,
 //			MultipartFile file 对应，layui默认就是file,要改动则相应改动
                 field:'file',
                 bindAction: '#test9',

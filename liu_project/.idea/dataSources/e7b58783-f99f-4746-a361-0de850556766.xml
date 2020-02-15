@@ -43,8 +43,8 @@
     <schema id="14" parent="1" name="LIUSHENGEN">
       <ObjectId>91</ObjectId>
       <CreatedTimestamp>2019-10-15.03:04:33</CreatedTimestamp>
-      <ModifiedTimestamp>2020-02-12.05:28:36</ModifiedTimestamp>
-      <IntrospectionTimestamp>2020-02-12.05:28:37</IntrospectionTimestamp>
+      <ModifiedTimestamp>2020-02-14.21:22:50</ModifiedTimestamp>
+      <IntrospectionTimestamp>2020-02-14.21:22:51</IntrospectionTimestamp>
       <Current>1</Current>
     </schema>
     <schema id="15" parent="1" name="MDDATA">
@@ -173,7 +173,7 @@
     <table id="47" parent="14" name="PERSON_1">
       <ObjectId>76029</ObjectId>
       <CreatedTimestamp>2019-10-23</CreatedTimestamp>
-      <ModifiedTimestamp>2019-10-23</ModifiedTimestamp>
+      <ModifiedTimestamp>2020-02-13</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="48" parent="14" name="PERSON_1_1">
@@ -191,7 +191,7 @@
     <table id="50" parent="14" name="REWARDTASK">
       <ObjectId>79390</ObjectId>
       <CreatedTimestamp>2020-02-11</CreatedTimestamp>
-      <ModifiedTimestamp>2020-02-11</ModifiedTimestamp>
+      <ModifiedTimestamp>2020-02-12</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="51" parent="14" name="STUDENT">
@@ -209,13 +209,13 @@
     <table id="53" parent="14" name="USERLIU">
       <ObjectId>78628</ObjectId>
       <CreatedTimestamp>2020-01-18</CreatedTimestamp>
-      <ModifiedTimestamp>2020-01-18</ModifiedTimestamp>
+      <ModifiedTimestamp>2020-02-13</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="54" parent="14" name="USER_">
       <ObjectId>78154</ObjectId>
       <CreatedTimestamp>2020-01-01</CreatedTimestamp>
-      <ModifiedTimestamp>2020-02-12</ModifiedTimestamp>
+      <ModifiedTimestamp>2020-02-14</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <view id="55" parent="14" name="DATE_VIEW">
@@ -34328,7 +34328,15 @@
       <Position>6</Position>
       <DataType>VARCHAR2(100 byte)|0s</DataType>
     </column>
-    <trigger id="4935" parent="50" name="REWARDTASK_ID_">
+    <column id="4935" parent="50" name="TITLE_">
+      <Position>7</Position>
+      <DataType>VARCHAR2(20 byte)|0s</DataType>
+    </column>
+    <column id="4936" parent="50" name="TOTIME">
+      <Position>8</Position>
+      <DataType>TIMESTAMP(6)|0s</DataType>
+    </column>
+    <trigger id="4937" parent="50" name="REWARDTASK_ID_">
       <ObjectId>79393</ObjectId>
       <SourceTextLength>74</SourceTextLength>
       <DependsOnIds>117,79391</DependsOnIds>
@@ -34338,16 +34346,16 @@
       <Turn>before-row</Turn>
       <Condition> new.id is null </Condition>
     </trigger>
-    <column id="4936" parent="51" name="NAME">
+    <column id="4938" parent="51" name="NAME">
       <Position>1</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="4937" parent="51" name="AGE">
+    <column id="4939" parent="51" name="AGE">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <index id="4938" parent="51" name="ZHUJIAN">
+    <index id="4940" parent="51" name="ZHUJIAN">
       <ObjectId>77633</ObjectId>
       <CreatedTimestamp>2019-12-19</CreatedTimestamp>
       <ModifiedTimestamp>2019-12-19</ModifiedTimestamp>
@@ -34355,70 +34363,78 @@
       <ColNames>NAME</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="4939" parent="51" name="ZHUJIAN">
+    <key id="4941" parent="51" name="ZHUJIAN">
       <ModifiedTimestamp>2019-12-19</ModifiedTimestamp>
       <ColNames>NAME</ColNames>
       <InitiallyDeferred>1</InitiallyDeferred>
       <UnderlyingIndexName>ZHUJIAN</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="4940" parent="52" name="NAME">
+    <column id="4942" parent="52" name="NAME">
       <Position>1</Position>
       <DataType>VARCHAR2(20 byte)|0s</DataType>
     </column>
-    <column id="4941" parent="52" name="AGE">
+    <column id="4943" parent="52" name="AGE">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="4942" parent="53" name="NAME">
+    <column id="4944" parent="53" name="NAME">
       <Position>1</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4943" parent="53" name="AGE">
+    <column id="4945" parent="53" name="AGE">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="4944" parent="54" name="ID">
+    <column id="4946" parent="54" name="ID">
       <Position>1</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="4945" parent="54" name="USERNAME">
+    <column id="4947" parent="54" name="USERNAME">
       <Position>2</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4946" parent="54" name="PASSWORD">
+    <column id="4948" parent="54" name="PASSWORD">
       <Position>3</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4947" parent="54" name="EMAIL">
+    <column id="4949" parent="54" name="EMAIL">
       <Position>4</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4948" parent="54" name="PHONE">
+    <column id="4950" parent="54" name="PHONE">
       <Position>5</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4949" parent="54" name="STATE">
+    <column id="4951" parent="54" name="STATE">
       <Position>6</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>
-    <column id="4950" parent="54" name="OTHER">
+    <column id="4952" parent="54" name="OTHER">
       <Position>7</Position>
       <DataType>VARCHAR2(2000 byte)|0s</DataType>
     </column>
-    <column id="4951" parent="54" name="SHIJIAN">
+    <column id="4953" parent="54" name="SHIJIAN">
       <Position>8</Position>
       <DataType>TIMESTAMP(6)|0s</DataType>
     </column>
-    <column id="4952" parent="54" name="TIDAIUSERNAME">
+    <column id="4954" parent="54" name="TIDAIUSERNAME">
       <Position>9</Position>
       <DataType>VARCHAR2(50 byte)|0s</DataType>
     </column>
-    <column id="4953" parent="55" name="SHIJIAN">
+    <column id="4955" parent="54" name="GRADE">
+      <Position>10</Position>
+      <DataType>VARCHAR2(20 byte)|0s</DataType>
+    </column>
+    <column id="4956" parent="54" name="BANJI">
+      <Position>11</Position>
+      <DataType>VARCHAR2(20 byte)|0s</DataType>
+    </column>
+    <column id="4957" parent="55" name="SHIJIAN">
       <Position>1</Position>
       <DataType>DATE|0s</DataType>
     </column>
-    <column id="4954" parent="55" name="ID">
+    <column id="4958" parent="55" name="ID">
       <Position>2</Position>
       <DataType>NUMBER(*)|0s</DataType>
     </column>

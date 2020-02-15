@@ -40,14 +40,7 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="GONGNENG: table" type="942f455b:OraImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="LOGIN: table" type="942f455b:OraImplModel$Table" />
+        <item name="DATE_: table" type="942f455b:OraImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -72,6 +65,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -197,12 +191,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@58270a85" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a8bc7581" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@58270a85" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@17fbf5c5" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a8bc7581" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@67e15e0c" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -288,6 +282,13 @@
       <workItem from="1581347029487" duration="324000" />
       <workItem from="1581389236497" duration="1723000" />
       <workItem from="1581391450864" duration="29555000" />
+      <workItem from="1581479115525" duration="1895000" />
+      <workItem from="1581481085302" duration="1758000" />
+      <workItem from="1581482968314" duration="2813000" />
+      <workItem from="1581505603715" duration="11000" />
+      <workItem from="1581560007420" duration="3358000" />
+      <workItem from="1581564092179" duration="13078000" />
+      <workItem from="1581656740316" duration="6409000" />
     </task>
     <servers />
   </component>

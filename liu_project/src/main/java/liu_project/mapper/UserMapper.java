@@ -18,13 +18,26 @@ import java.util.List;
 @Service
 @Mapper
 public interface UserMapper {
-
-    @Insert("insert into user_ values(#{id},#{username},#{password},#{email},#{phone},1,#{other},sysdate,#{tidai})")
-    void insertUser(int id, String username, String password, String email, String phone,String other,String tidai);
-    @Select("select tidaiusername from user_ where username=#{username} and password=#{password}")
-    String selectUser(String username,String password);
+    /*
+    * 注册
+    * */
+    @Insert("insert into user_ values(#{id},#{username},#{password},#{email},#{phone},1,#{other},sysdate,#{tidai},#{grade},#{banji})")
+    void insertUser(int id, String username, String password, String email, String phone,String other,String tidai,String grade,String banji);
+    /*
+    * 验证账号密码是否正确
+    * */
+    @Select("select state from user_ where username=#{username} and password=#{password}")
+    int selectUser(String username,String password);
     @Select("select * from user_")
     List<User> findAll();
+    /*
+    * 所有功能
+    * */
     @Select("select * from Gongneng")
     List<Gongneng> findGongneng();
+    /*
+    * 往各个不同的表中插入数据
+    * */
+    @Insert("insert into rewardtask values(null,#{promulgator},#{message},1,#{price},#{imageurl},#{title},to_timestamp(#{ToTime},'YYYY-MM-DD HH24:MI:SS'))")
+    void insertOne01(String promulgator,String message,int price,String imageurl,String title,String ToTime);
 }

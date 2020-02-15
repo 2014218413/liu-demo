@@ -12,6 +12,24 @@ public class User {
     private String email;
     private String phone;
     private String other;
+    private String grade;
+    private String banji;
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getBanji() {
+        return banji;
+    }
+
+    public void setBanji(String banji) {
+        this.banji = banji;
+    }
 
     public String getNameTidai() {
         return nameTidai;
