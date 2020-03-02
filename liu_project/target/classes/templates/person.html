@@ -24,13 +24,13 @@
                     <p>首页</a></p>
                 </li>
                 <li><img src="assets/images/works.png" alt="">
-                    <p id="myProduct" onclick="f1()">我的商品</p>
+                    <p id="myProduct">上架商品</p>
                 </li>
                 <li><img src="assets/images/release.png" alt="">
                     <p id="pullProduct">发布商品</p>
                 </li>
                 <li><img src="assets/images/collection.png" alt="">
-                    <p id="loveProduct">我的收藏</p>
+                    <p id="loveProduct">所购商品</p>
                 </li>
                 <li><img src="assets/images/setup.png" alt="">
                     <p id="structure">设置</p>
@@ -44,12 +44,13 @@
     <div class="banner">
         <ul class="layui-nav">
             <li class="layui-nav-item" id="li01">个人中心</li>
-            <li class="layui-nav-item"><a href="">悬赏任务</a></li>
-            <li class="layui-nav-item"><a href="">校园八卦</a></li>
-            <li class="layui-nav-item"><a href="">人力资源模块</a></li>
-            <li class="layui-nav-item"><a href="">二手货物市场</a></li>
-            <li class="layui-nav-item">物品交换市场</li>
-            <li class="layui-nav-item"><a href="">失物模块</a></li>
+            <li class="layui-nav-item" id="li02"><a href="http://localhost:8099/美丽动人">悬赏任务</a></li>
+            <li class="layui-nav-item" id="li03"><a href="">校园八卦</a></li>
+            <li class="layui-nav-item" id="li04"><a href="">人力资源模块</a></li>
+            <li class="layui-nav-item" id="li05"><a href="http://localhost:8099/行尸走肉">二手货物市场</a></li>
+            <li class="layui-nav-item" id="li06"><a href="">物品交换市场</a></li>
+            <li class="layui-nav-item" id="li07"><a href="">失物模块</a></li>
+            <li class="layui-nav-item" id="li08"><a href="">合拍</a></li>
 
         </ul>
     </div>
@@ -73,12 +74,14 @@
         $('#pullProduct').on('click',function () {
             window.location.href="http://localhost:8099/pull?投机者";
         });
-    });
 
-    function f1() {
-        window.location.href="http://localhost:8099/h"
-        // window.open("http://www.baidu.com")   新窗口
-    }
+        $('#myProduct').on('click',function () {
+            window.location.href="http://localhost:8099/mp?拾荒者";
+        });
+        $('#loveProduct').on('click',function () {
+            window.location.href="http://localhost:8099/lp?苦行僧";
+        });
+    });
 
     layui.use('element',function () {
         var element = layui.element;

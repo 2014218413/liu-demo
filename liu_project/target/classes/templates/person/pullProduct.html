@@ -96,6 +96,10 @@
         });
     };
     $(function (){
+        $('#test9').on('click',function () {
+            $('#test9').addClass("layui-btn-disabled");
+            $('#test9').attr('disabled',true);
+        });
         $.ajax({
             url:"http://localhost:8099/n",
             success:function (data) {

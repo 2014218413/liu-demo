@@ -28,16 +28,15 @@ public class MyMvcConfig implements WebMvcConfigurer {
         WebMvcConfigurer adapter = new WebMvcConfigurer() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("index");
                 registry.addViewController("/h").setViewName("hello");
                 registry.addViewController("/d").setViewName("demo");
             }
-            /*
-            * 这里一般不拦截/**  这样就算访问static下的js css 也会判断的，浪费资源是处理缓慢
-            * */
+
 //            @Override
 //            public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//                registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+//                String path = System.getProperty("user.dir")+"\\src\\main\\resources\\static\\personImages\\";
+//                System.out.println(path);
+//                registry.addResourceHandler("/static/personImages/**").addResourceLocations("file"+path);
 //            }
 
             @Override
@@ -49,10 +48,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
                         .maxAge(3600 * 24);
             }
 
-            @Override
-            public void addInterceptors(InterceptorRegistry registry) {
-                registry.addInterceptor(new HandlerInterCeptor_()).addPathPatterns("/**");
-            }
+//            @Override     设置拦截的
+//            public void addInterceptors(InterceptorRegistry registry) {
+//                registry.addInterceptor(new HandlerInterCeptor_()).addPathPatterns("/**");
+//            }
         };
         return adapter;
     }

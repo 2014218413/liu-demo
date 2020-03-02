@@ -5,11 +5,15 @@ import liu_project.image.ImgResult;
 import liu_project.mapper.UserMapper;
 import liu_project.tables.Gongneng;
 import liu_project.tables.User;
+import liu_project.tables.gongNeng_One.XuanShang;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import sun.rmi.runtime.Log;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +35,7 @@ import java.util.UUID;
  * */
 @Controller
 public class Controller_ {
+    Logger logger = LoggerFactory.getLogger(getClass());
     //Mybatis的操作
     @Autowired
     UserMapper userMapper;
@@ -49,6 +54,11 @@ public class Controller_ {
     * 然后在网页的js里面通过ajax判断  把这个function放在render里面
     * 如果if里面判断的session的username为空，跳转.
     */
+    @RequestMapping("/")
+    public String init (HttpSession session) {
+        session.setAttribute("username",null);
+        return "index";
+    }
     @ResponseBody
     @RequestMapping("/login")
     public void login(HttpSession session,String username, String password, HttpServletResponse httpServletResponse, HttpServletRequest httpServletRequest) throws IOException {
@@ -87,6 +97,40 @@ public class Controller_ {
     public int get02() {
         return userMapper.findAll().size();
     }
+    /*
+    * 悬赏任务查询处
+    * */
+    @ResponseBody
+    @RequestMapping("/xuan")
+    public List<XuanShang> get03() {
+//        PageHelper.startPage(pn,ps);
+        return userMapper.getXuan();
+    }
+    @ResponseBody
+    @RequestMapping("/xuanSize")
+    public int get04() {
+        return userMapper.getXuan().size();
+    } /*
+    * 二手货物查询处
+    * */
+    @ResponseBody
+    @RequestMapping("/two")
+    public List<XuanShang> getTwo() {
+//        PageHelper.startPage(pn,ps);
+        return userMapper.getTwoHand();
+    }
+    @ResponseBody
+    @RequestMapping("/twoS")
+    public int getTwoSize() {
+        return userMapper.getTwoHand().size();
+    }
+
+    @ResponseBody
+    @RequestMapping("/loveProduct")
+    public List<XuanShang> get05(HttpSession session) {
+//        PageHelper.startPage(pn,ps);
+        return userMapper.getLoveProduct((String) session.getAttribute("username"));
+    }
 
     @ResponseBody
     @RequestMapping("/n")
@@ -99,7 +143,7 @@ public class Controller_ {
     @RequestMapping("/p")
     public String person (HttpSession session,HttpServletRequest httpServletRequest) {
         if (session.getAttribute("username") == null) {
-            return "error/error";
+            return "index";
         }
         else {
             Cookie[] cookies = httpServletRequest.getCookies();
@@ -128,13 +172,19 @@ public class Controller_ {
             String newName = uuid + extName;
             // 4.获取要保存的路径文件夹
             //String realPath = System.getProperty("user.dir");
+            /*
+            * 这里是将加入的图片保存到了项目中，所以启动项目后加入的图片访问时会显示404
+            * 只有重新编译后才能访问的到
+            * 这种情况将图片加入到服务器上就行了，**访问图片的路径写图片在服务器中的路径**
+            *120.26.56.127:8088/1.png（把图片放到tomcat的web-inf下）
+            * 这就要求项目运行的机器是台服务器
+            * */
             String realPath = "D:\\Idea_mingbaile\\liu_project";
             // 5.保存图片
             desFilePath = realPath + "\\src\\main\\resources\\static\\personImages\\" + newName;
             File desFile = new File(desFilePath);
             //MultipartFile里面封装好的io操作
             file.transferTo(desFile);
-            System.out.println(desFilePath);
             // 6.返回保存结果信息
             //https://blog.csdn.net/qq_26570353/article/details/79599303
             result.setCode(0);
@@ -157,21 +207,38 @@ public class Controller_ {
     /*
     * 发布任务模块的
     * */
-    @ResponseBody
     @RequestMapping(value="saveGoods")
-    private void saveImgInfo(@RequestParam("smallTit") String smallTit, @RequestParam("modules") String modules, @RequestParam("imgUrls") String imgUrls, @RequestParam("user") String user, @RequestParam("number") int number, @RequestParam("date") String time){
+    private String saveImgInfo(@RequestParam("smallTit") String smallTit, @RequestParam("modules") String modules, @RequestParam("imgUrls") String imgUrls, @RequestParam("user") String user, @RequestParam("number") int number, @RequestParam("date") String time) {
+        try {
+            switch (modules) {
+                case "悬赏任务":
+                    if (imgUrls == null || imgUrls == "" || imgUrls == " ") {
+                        imgUrls = "wwwwww";
+                        userMapper.insertOne01("rewardtask",user, smallTit, number, imgUrls, modules, time);
+                        return "person";
+                    } else {
+                        userMapper.insertOne01("rewardtask",user, smallTit, number, imgUrls, modules, time);
+                        return "person";
+                    }
 
-        switch(modules) {
-            case "悬赏任务":
-                userMapper.insertOne01(user,smallTit,number,imgUrls,modules,time);
-            break;
-            case "二手货物出售":
-            break;
-            case "物品交换":
-            break;
-            case "人力资源":
-            break;
+                case "二手货物出售":
+                    if (imgUrls == null || imgUrls == "" || imgUrls == " ") {
+                        imgUrls = "wwwwwwww";
+                        userMapper.insertOne01("twohand",user, smallTit, number, imgUrls, modules, time);
+                        return "person";
+                    } else {
+                        userMapper.insertOne01("twohand",user, smallTit, number, imgUrls, modules, time);
+                        return "person";
+                    }
+                case "物品交换":
+                    break;
+                case "人力资源":
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return "person";
     }
     /*
     * 可以选择的任务列表
@@ -183,9 +250,94 @@ public class Controller_ {
     }
 
     @RequestMapping("pull")
-    public String userName(@RequestParam(value = "投机者") String userName,HttpSession httpSession) {
-        System.out.println(httpSession.getAttribute("username"));
-        System.out.println(userName);
+    public String userName(HttpSession httpSession) {
+        if (httpSession.getAttribute("username") == null) {
+            return "index";
+        }
         return "/person/pullProduct";
     }
+    //跳转悬赏任务
+    @RequestMapping("美丽动人")
+    public String goRewardTask (HttpSession session) {
+        if (session.getAttribute("username") == null) {
+            return "index";
+        }
+        else {
+            return "moudel_OneByOne/RewardTask";
+        }
+    }
+    //跳转二手商品出售
+    @RequestMapping("行尸走肉")
+    public String goTwoHand (HttpSession session) {
+        if (session.getAttribute("username") == null) {
+            return "index";
+        }
+        else {
+            return "moudel_OneByOne/twoHand";
+        }
+    }
+
+    @RequestMapping("lp")
+    public String goLoveProduct (HttpSession session) {
+        if (session.getAttribute("username") == null) {
+            return "index";
+        }
+        else {
+            return "/person/loveProduct";
+        }
+    }
+    /*
+    * 此处是购买处
+    * */
+    @ResponseBody
+    @RequestMapping("del")
+    public void del(HttpSession session,@RequestParam("id") String id) {
+        String[] ss = id.split(":");
+        String name = (String) session.getAttribute("username");
+        switch (ss[0]){
+            case "二手货物":
+                userMapper.gaoumai("twohand",name,id);
+                break;
+            case "悬赏任务":
+                userMapper.gaoumai("rewardtask",name,id);
+                break;
+        }
+
+
+
+    } /*
+    * 此处是撤銷处
+    * */
+    @ResponseBody
+    @RequestMapping("remove")
+    public void remove(HttpSession session,@RequestParam("id") String id) {
+        String[] ss = id.split(":");
+        switch (ss[0]){
+            case "二手货物":
+                userMapper.gaoumai("twohand"," ",id);
+                break;
+            case "悬赏任务":
+                userMapper.gaoumai("rewardtask"," ",id);
+                break;
+        }
+
+    }
+
+    /*
+    * 搜索自己发布的商品
+    * */
+    @ResponseBody
+    @RequestMapping("myProduct")
+    public List<XuanShang> myProduct (HttpSession session) {
+
+        return userMapper.getMyProduct((String) session.getAttribute("username"));
+    }
+    /*
+    * 转页面
+    * */
+    @RequestMapping("mp")
+    public String mp () {
+        return "person/myProduct";
+    }
+
 }

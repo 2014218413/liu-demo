@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="assets/js/jquery.min.js"></script>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+</head>
+<body>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+</body>
+<script th:inline="none">
+    layui.use('table',function () {
+        var table = layui.table;
+        table.render({
+           elem:'#test',
+           url:'http://localhost:8099/loveProduct',
+           parseData:function (res) {
+               res.code = '0';
+               res.data = res;
+               res.message = '';
+               return res;
+           },
+            totalRow:true,
+            cols:[[
+                {field:'id', title:'商品序号'}
+                ,{field:'promulgator', title:'发布者'}
+                ,{field:'message', title:'描述'}
+                // ,{field:'email', title:'邮箱', width:150, edit: 'text', templet: function(res){
+                //         return '<em>'+ res.email +'</em>'
+                //     }}
+                ,{field:'price', title:'价格'}
+                ,{field:'goumaishijian', title:'购买时间'}
+            ]]
+        });
+    })
+</script>
+</html>

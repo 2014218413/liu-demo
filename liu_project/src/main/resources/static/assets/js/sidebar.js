@@ -1,7 +1,6 @@
 $(function () {
    // 侧边栏弹出
    $('#li01').click(function () {
-      alert('**********');
       var left = $('#wrapper')[0].offsetLeft;
       if (left == 0) {
          $('#wrapper').offset({
