@@ -117,12 +117,23 @@ public class Controller_ {
     @RequestMapping("/two")
     public List<XuanShang> getTwo() {
 //        PageHelper.startPage(pn,ps);
-        return userMapper.getTwoHand();
+        return userMapper.getTwoHand("twohand");
     }
     @ResponseBody
     @RequestMapping("/twoS")
     public int getTwoSize() {
-        return userMapper.getTwoHand().size();
+        return userMapper.getTwoHand("twohand").size();
+    }
+    @ResponseBody
+    @RequestMapping("/changeS")
+    public int getChangeSize() {
+        return userMapper.getTwoHand("changewu").size();
+    }
+    @ResponseBody
+    @RequestMapping("/change")
+    public List<XuanShang> getChange() {
+//        PageHelper.startPage(pn,ps);
+        return userMapper.getTwoHand("changewu");
     }
 
     @ResponseBody
@@ -160,7 +171,7 @@ public class Controller_ {
         String desFilePath = "";
         String oriName = "";
         ImgResult result = new ImgResult();
-        Map<String, String> dataMap = new HashMap<>();
+        Map<String, String> dataMap;
         ImgResult imgResult = new ImgResult();
         try {
             // 1.获取原文件名
@@ -209,29 +220,37 @@ public class Controller_ {
     * */
     @RequestMapping(value="saveGoods")
     private String saveImgInfo(@RequestParam("smallTit") String smallTit, @RequestParam("modules") String modules, @RequestParam("imgUrls") String imgUrls, @RequestParam("user") String user, @RequestParam("number") int number, @RequestParam("date") String time) {
+        String sa = smallTit.replace("<","&lt");
         try {
             switch (modules) {
                 case "悬赏任务":
                     if (imgUrls == null || imgUrls == "" || imgUrls == " ") {
                         imgUrls = "wwwwww";
-                        userMapper.insertOne01("rewardtask",user, smallTit, number, imgUrls, modules, time);
+                        userMapper.insertOne01("rewardtask",user, sa, number, imgUrls, modules, time);
                         return "person";
                     } else {
-                        userMapper.insertOne01("rewardtask",user, smallTit, number, imgUrls, modules, time);
+                        userMapper.insertOne01("rewardtask",user, sa, number, imgUrls, modules, time);
                         return "person";
                     }
 
                 case "二手货物出售":
                     if (imgUrls == null || imgUrls == "" || imgUrls == " ") {
                         imgUrls = "wwwwwwww";
-                        userMapper.insertOne01("twohand",user, smallTit, number, imgUrls, modules, time);
+                        userMapper.insertOne01("twohand",user, sa, number, imgUrls, modules, time);
                         return "person";
                     } else {
-                        userMapper.insertOne01("twohand",user, smallTit, number, imgUrls, modules, time);
+                        userMapper.insertOne01("twohand",user, sa, number, imgUrls, modules, time);
                         return "person";
                     }
                 case "物品交换":
-                    break;
+                    if (imgUrls == null || imgUrls == "" || imgUrls == " ") {
+                        imgUrls = "wwwwwwwwww";
+                        userMapper.insertOne01("changewu",user, sa, number, imgUrls, modules, time);
+                        return "person";
+                    } else {
+                        userMapper.insertOne01("changewu",user, sa, number, imgUrls, modules, time);
+                        return "person";
+                    }
                 case "人力资源":
                     break;
             }
@@ -276,6 +295,16 @@ public class Controller_ {
             return "moudel_OneByOne/twoHand";
         }
     }
+    //跳转物品交换
+    @RequestMapping("丧钟为谁而鸣")
+    public String goChangewu (HttpSession session) {
+        if (session.getAttribute("username") == null) {
+            return "index";
+        }
+        else {
+            return "moudel_OneByOne/changeWu";
+        }
+    }
 
     @RequestMapping("lp")
     public String goLoveProduct (HttpSession session) {
@@ -300,6 +329,9 @@ public class Controller_ {
                 break;
             case "悬赏任务":
                 userMapper.gaoumai("rewardtask",name,id);
+                break;
+            case "物品交换":
+                userMapper.gaoumai("changewu",name,id);
                 break;
         }
 

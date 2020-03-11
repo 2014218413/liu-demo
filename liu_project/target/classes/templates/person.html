@@ -33,7 +33,7 @@
                     <p id="loveProduct">所购商品</p>
                 </li>
                 <li><img src="assets/images/setup.png" alt="">
-                    <p id="structure">设置</p>
+                    <p id="structure">发布招聘信息</p>
                 </li>
             </ul>
         </div>
@@ -46,9 +46,9 @@
             <li class="layui-nav-item" id="li01">个人中心</li>
             <li class="layui-nav-item" id="li02"><a href="http://localhost:8099/美丽动人">悬赏任务</a></li>
             <li class="layui-nav-item" id="li03"><a href="">校园八卦</a></li>
-            <li class="layui-nav-item" id="li04"><a href="">人力资源模块</a></li>
+            <li class="layui-nav-item" id="li04"><a href="http://localhost:8099/另起炉灶">人力资源模块</a></li>
             <li class="layui-nav-item" id="li05"><a href="http://localhost:8099/行尸走肉">二手货物市场</a></li>
-            <li class="layui-nav-item" id="li06"><a href="">物品交换市场</a></li>
+            <li class="layui-nav-item" id="li06"><a href="http://localhost:8099/丧钟为谁而鸣">物品交换市场</a></li>
             <li class="layui-nav-item" id="li07"><a href="">失物模块</a></li>
             <li class="layui-nav-item" id="li08"><a href="">合拍</a></li>
 
@@ -80,6 +80,9 @@
         });
         $('#loveProduct').on('click',function () {
             window.location.href="http://localhost:8099/lp?苦行僧";
+        });
+        $('#structure').on('click',function () {
+            window.location.href="http://localhost:8099/st?这么着吧";
         });
     });
 

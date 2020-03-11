@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>发布商品</title>
     <script src="assets/js/jquery.min.js"></script>
     <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
@@ -28,7 +28,7 @@
     <div class="layui-form-item layui-form-text">
         <label class="layui-form-label">详情概述</label>
         <div class="layui-input-block">
-            <textarea name="smallTit" id="smallTit" placeholder="购买时间，价格，损坏情况，发票是否还有等" class="layui-textarea" lay-verify="required"></textarea>
+            <textarea onchange="jqueyr(this)" name="smallTit" id="smallTit" placeholder="购买时间，价格，损坏情况，发票是否还有等" class="layui-textarea" lay-verify="required"></textarea>
         </div>
     </div>
     <div class="layui-form-item">
@@ -65,7 +65,7 @@
     <input type="text" id="imgUrls" name="imgUrls" style="display: none;" class="layui-input">
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" type="submit" style="width: 800px;" id="btnSubmit" lay-submit lay-filter="jiancha">
+            <button class="layui-btn" type="submit" style="width: 800px;" id="btnSubmit" lay-submit lay-filter="jqueyr">
                 提交处理
             </button>
         </div>
@@ -144,7 +144,7 @@
                     });
                 },
                 done: function(res, index, upload) {
-                    //每个图片上传结束的回调，成功的话，就把新图片的名字保存起来，作为数据提交
+                    //每个图片上传结束的回调，成功的话，就把新图片的名字保存起来，作为数据提交(插入用的)
                     console.log(res.code);
                     if(res.code=="1"){
                         fail++;

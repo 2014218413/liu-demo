@@ -40,12 +40,14 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="DEMO3: table" type="942f455b:OraImplModel$Table" />
+        <item name="DEMO: table" type="942f455b:OraImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="PUBLIC: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="PERSONLI: table" type="942f455b:OraImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -56,6 +58,12 @@
         <item name="liushengen@120.26.56.127" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="liushengen@120.26.56.127" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="liushengen: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
@@ -64,9 +72,9 @@
       <list>
         <option value="JavaScript File" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -83,7 +91,7 @@
   <component name="ProjectId" id="1V6lTVZSMhlkhUCoJkdLW2qZCgB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="derby&#10;oracle&#10;mysql" />
+    <property name="DatabaseDriversLRU" value="derby&#10;mysql&#10;oracle" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -93,18 +101,18 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\images" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\images" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\css" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\js" />
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static" />
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -120,6 +128,19 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="温故知新" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="liu_project.controller.温故知新" />
+      <module name="liu_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="liu_project.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="liu_project.controller.DD" />
       <module name="liu_project" />
@@ -178,6 +199,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Application.温故知新" />
         <item itemvalue="Application.DD" />
         <item itemvalue="Application.Demo" />
         <item itemvalue="JUnit.QRCode.createCode" />
@@ -191,22 +213,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@44e4a1d1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6377d5fc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@44e4a1d1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@9b1b893" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@44e4a1d1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@35266b8b" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@44e4a1d1" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@b838c5" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6377d5fc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3997913a" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -316,6 +328,22 @@
       <workItem from="1582722904455" duration="2156000" />
       <workItem from="1583069270496" duration="487000" />
       <workItem from="1583132718794" duration="20778000" />
+      <workItem from="1583204971102" duration="2396000" />
+      <workItem from="1583302336736" duration="38000" />
+      <workItem from="1583303615120" duration="103000" />
+      <workItem from="1583323665333" duration="245000" />
+      <workItem from="1583395484971" duration="1592000" />
+      <workItem from="1583400764550" duration="3240000" />
+      <workItem from="1583409302205" duration="12000" />
+      <workItem from="1583500535508" duration="1656000" />
+      <workItem from="1583572040566" duration="177000" />
+      <workItem from="1583572952831" duration="2733000" />
+      <workItem from="1583647297805" duration="273000" />
+      <workItem from="1583726662445" duration="19821000" />
+      <workItem from="1583758329292" duration="6398000" />
+      <workItem from="1583815729381" duration="62000" />
+      <workItem from="1583815801547" duration="16691000" />
+      <workItem from="1583902468528" duration="1405000" />
     </task>
     <servers />
   </component>
