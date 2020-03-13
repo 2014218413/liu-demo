@@ -51,6 +51,20 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="REWARDTASK: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="USER_: table" type="942f455b:OraImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="liushengen@120.26.56.127" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
@@ -73,8 +87,8 @@
         <option value="JavaScript File" />
         <option value="Enum" />
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -108,11 +122,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\images" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\js" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\images" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets" />
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\images" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\css" />
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -167,21 +181,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QRCode.createCode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="liu_project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="qr.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="qr" />
-      <option name="MAIN_CLASS_NAME" value="qr.QRCode" />
-      <option name="METHOD_NAME" value="createCode" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="sidebar.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/main/resources/static/assets/js/sidebar.js" working-dir="$PROJECT_DIR$/src/main/resources/static/assets/js">
+      <method v="2" />
     </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="liu_project" />
@@ -199,10 +200,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="Node.js.sidebar.js" />
         <item itemvalue="Application.温故知新" />
         <item itemvalue="Application.DD" />
         <item itemvalue="Application.Demo" />
-        <item itemvalue="JUnit.QRCode.createCode" />
       </list>
     </recent_temporary>
   </component>
@@ -210,17 +211,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6377d5fc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6377d5fc" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3997913a" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -344,6 +335,9 @@
       <workItem from="1583815729381" duration="62000" />
       <workItem from="1583815801547" duration="16691000" />
       <workItem from="1583902468528" duration="1405000" />
+      <workItem from="1583904271694" duration="12233000" />
+      <workItem from="1583987312291" duration="13107000" />
+      <workItem from="1584006609878" duration="10627000" />
     </task>
     <servers />
   </component>

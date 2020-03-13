@@ -27,34 +27,34 @@ $(function () {
 
    // 鼠标触碰改变img样式
    var SRC = [{
-         src: 'assets/images/home_1.png'
+         src: 'assets/images/cao.jpg'
       },
       {
-         src: 'assets/images/works_1.png'
+         src: 'assets/images/wo.jpg'
       },
       {
-         src: 'assets/images/release_1.png'
+         src: 'assets/images/xi.jpg.png'
       },
       {
-         src: 'assets/images/collection_1.png'
+         src: 'assets/images/huan.jpg'
       },
       {
-         src: 'assets/images/setup_1.png'
+         src: 'assets/images/shei.jpg'
       },
       {
-         src: 'assets/images/home.png'
+         src: 'assets/images/cao.jpg'
       },
       {
-         src: 'assets/images/works.png'
+         src: 'assets/images/wo.jpg'
       },
       {
-         src: 'assets/images/release.png'
+         src: 'assets/images/cao.jpg'
       },
       {
-         src: 'assets/images/collection.png'
+         src: 'assets/images/shei.jpg'
       },
       {
-         src: 'assets/images/setup.png'
+         src: 'assets/images/a.jpg'
       },
    ]
    $('.option ul>li').mouseenter(function () {

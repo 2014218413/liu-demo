@@ -3,7 +3,9 @@ package liu_project.mapper;
 import liu_project.tables.Gongneng;
 import liu_project.tables.PersonLi;
 import liu_project.tables.User;
+import liu_project.tables.gongNeng_One.Message_;
 import liu_project.tables.gongNeng_One.XuanShang;
+import liu_project.tables.gongNeng_One.YiMai;
 import org.apache.ibatis.annotations.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -64,13 +66,24 @@ public interface UserMapper {
     List<XuanShang> getMyProduct(String name);
 
     //获取自己购买的商品
-    @Select("select id,promulgator,message,price,imageurl,totime,goumaishijian from changewu where promulgator=#{name} and state=0 union select id,promulgator,message,price,imageurl,totime,goumaishijian from REWARDTASK where promulgator=#{name} and state=0 union select id,promulgator,message,price,imageurl,totime,goumaishijian from twohand where promulgator=#{name} and state=0")
+    @Select("select id,promulgator,message,price,imageurl,totime,goumaishijian from changewu where goumaizhe=#{name} and state=0 union select id,promulgator,message,price,imageurl,totime,goumaishijian from REWARDTASK where goumaizhe=#{name} and state=0 union select id,promulgator,message,price,imageurl,totime,goumaishijian from twohand where goumaizhe=#{name} and state=0")
     List<XuanShang> getLoveProduct(String name);
+
+    //获取自己卖出的商品
+    @Select("select id,message,price,title_,goumaishijian,goumaizhe from changewu where goumaizhe !=' ' and state=0 and promulgator=#{name} union select id,message,price,title_,goumaishijian,goumaizhe from REWARDTASK where goumaizhe !=' ' and state=0 and promulgator=#{name} union select id,message,price,title_,goumaishijian,goumaizhe from twohand where goumaizhe != ' ' and state=0 and promulgator=#{name}")
+    List<YiMai> getYiMai(String name);
 
     //插入发布的人力资源信息
     @Insert("insert into personli values (#{user_},#{grade},#{class_},#{name_},#{phone_},#{weixin},#{gangwei},#{danjia},#{ganshijian},#{didian},to_timestamp(#{churiqi},'YYYY-MM-DD HH24:MI:SS'),#{renshu},#{yaoqiu},1,null,to_timestamp(#{jiezhishijian},'YYYY-MM-DD HH24:MI:SS'))")
     void pullPersonLi(String user_,String grade,String class_,String name_,String phone_,String weixin,String gangwei,int danjia,int ganshijian,String didian,String churiqi,int renshu,String yaoqiu,String jiezhishijian);
 
-    @Select("select * from personli")
+    @Select("select * from personli where state_=1")
     List<PersonLi> getPersonLi();
+
+    @Select("select distinct email,phone from user_ where username=#{message}")
+    List<Message_> mess(String message);
+
+    //修改发布的人力资源
+    @Update("update personli set renshu=${shu},state_=${sta} where id_=#{id} and user_=#{user_}")
+    void updatePerLi(int shu,int sta,String id,String user_);
 }

@@ -2,6 +2,9 @@ package liu_project.controller;
 
 import liu_project.mapper.UserMapper;
 import liu_project.tables.PersonLi;
+import liu_project.tables.gongNeng_One.Message_;
+import liu_project.tables.gongNeng_One.YiMai;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +29,14 @@ public class Controller2_ {
         }
         return "/moudel_TwoByTwo/personLi";
     }
+
+    @RequestMapping("/bp")
+    public String goYiMai(HttpSession session) {
+        if (session.getAttribute("username") == null) {
+            return "index";
+        }
+        return "/person/yiMaiPriduct";
+    }
     @RequestMapping("/st")
     public String pullPersonLi(HttpSession session) {
         if (session.getAttribute("username") == null) {
@@ -44,4 +55,39 @@ public class Controller2_ {
     public List<PersonLi> liPersonLi() {
         return userMapper.getPersonLi();
     }
+    //返回用户名
+    @RequestMapping("/getU")
+    @ResponseBody
+    public String getUser_(HttpSession session) {
+        return (String) session.getAttribute("username");
+    }
+    //联系卖家
+    @RequestMapping("/getMessage")
+    @ResponseBody
+    public List<Message_> getMessage_(@RequestParam("message") String message) {
+        return userMapper.mess(message);
+    }
+    //查看自己卖出的
+    @RequestMapping("/getYiMai")
+    @ResponseBody
+    public List<YiMai> getYiMai_(HttpSession session) {
+        return userMapper.getYiMai((String) session.getAttribute("username"));
+    }
+    //修改人力资源
+    @RequestMapping("/upl")
+    @ResponseBody
+    public void upPersonLi(HttpSession session,@RequestParam("me") String me,@RequestParam("shu") int shu) {
+        String user_ = (String) session.getAttribute("username");
+        userMapper.updatePerLi(shu,1,me,user_);
+    }
+
+    //撤销人力资源
+    @RequestMapping("/upl2")
+    @ResponseBody
+    public void upPersonLi2(HttpSession session,@RequestParam("me") String me) {
+        String user_ = (String) session.getAttribute("username");
+        userMapper.updatePerLi(0,0,me,user_);
+    }
+
+
 }

@@ -20,19 +20,22 @@
         </div>
         <div class="option">
             <ul>
-                <li><img src="assets/images/home.png" alt="">
-                    <p>首页</a></p>
+                <li><img src="assets/images/cao.jpg" alt="">
+                    <p>举报</p>
                 </li>
-                <li><img src="assets/images/works.png" alt="">
-                    <p id="myProduct">上架商品</p>
+                <li><img src="assets/images/wo.jpg" alt="">
+                    <p id="myProduct">销售中...</p>
                 </li>
-                <li><img src="assets/images/release.png" alt="">
+                <li><img src="assets/images/xi.jpg" alt="">
+                    <p id="loveProduct">已购买...</p>
+                </li>
+                <li><img src="assets/images/huan.jpg" alt="">
+                    <p id="goBieRen">已卖出...</p>
+                </li>
+                <li><img src="assets/images/shei.jpg" alt="">
                     <p id="pullProduct">发布商品</p>
                 </li>
-                <li><img src="assets/images/collection.png" alt="">
-                    <p id="loveProduct">所购商品</p>
-                </li>
-                <li><img src="assets/images/setup.png" alt="">
+                <li><img src="assets/images/a.jpg" alt="">
                     <p id="structure">发布招聘信息</p>
                 </li>
             </ul>
@@ -83,6 +86,9 @@
         });
         $('#structure').on('click',function () {
             window.location.href="http://localhost:8099/st?这么着吧";
+        });
+        $('#goBieRen').on('click',function () {
+            window.location.href="http://localhost:8099/bp?牙疼";
         });
     });
 

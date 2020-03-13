@@ -223,6 +223,7 @@
     </table>
     <table id="55" parent="14" name="PERSONLI">
       <ObjectId>80468</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-03-10</CreatedTimestamp>
       <ModifiedTimestamp>2020-03-10</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
@@ -248,6 +249,7 @@
     </table>
     <table id="59" parent="14" name="REWARDTASK">
       <ObjectId>79390</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-02-11</CreatedTimestamp>
       <ModifiedTimestamp>2020-03-03</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
@@ -266,6 +268,7 @@
     </table>
     <table id="62" parent="14" name="USER_">
       <ObjectId>78154</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-01-01</CreatedTimestamp>
       <ModifiedTimestamp>2020-02-14</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
