@@ -93,7 +93,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/springCloudConfig" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -338,6 +338,7 @@
       <workItem from="1583904271694" duration="12233000" />
       <workItem from="1583987312291" duration="13107000" />
       <workItem from="1584006609878" duration="10627000" />
+      <workItem from="1584086715946" duration="10000" />
     </task>
     <servers />
   </component>
