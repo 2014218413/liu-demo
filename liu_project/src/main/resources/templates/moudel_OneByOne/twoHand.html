@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>二手货物</title>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="assets/js/jquery.min.js"></script>
+</head>
+<body>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script id="barDemo" type="text/html">
+    <a class="layui-btn layui-btn-xs" lay-event="add">购买</a>
+</script>
+<script th:inline="none">
+    layui.use('table', function(){
+        function f () {
+            var a;
+            $.ajax({
+                url: "http://localhost:8099/twoS",
+
+                success:function (data) {
+                    a = data;
+                },
+                async:false,
+                error:function () {
+                    alert("*****************")
+                }
+            });
+            return a;
+        };
+        var table = layui.table;
+        table.render({
+            elem: '#test'
+            ,url:'http://localhost:8099/two'
+            ,parseData:function (res) {
+                res.code = "0";
+                res.msg = "";
+                res.data = res;
+                res.count = f();
+                return res;
+            }
+            ,toolbar: '#toolbarDemo'
+            ,title: '用户数据表'
+            ,totalRow: true
+            ,cols: [[
+                {field:'id', title:'商品序号'}
+                ,{field:'promulgator', title:'发布者'}
+                ,{field:'message', title:'描述'}
+                // ,{field:'email', title:'邮箱', width:150, edit: 'text', templet: function(res){
+                //         return '<em>'+ res.email +'</em>'
+                //     }}
+                ,{field:'price', title:'价格'}
+                ,{field:'imageurl', title:'图片',templet:function (res) {
+                        var url = res.imageurl.split(',');
+                        var message = "";
+                        if (url.length <= 1) {
+                            return  "未上传图片";
+                        }
+                        else {
+                            for (var i = 0;i<url.length-1;i++) {
+                                message += '<img src="http://localhost:8099/personImages/'+url[i]+'">';
+                            }
+                            return message;
+                        }
+                    }
+                }
+                ,{field:'totime', title:'截止时间'}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo'}
+            ]]
+            ,page: true
+        });
+        table.on('tool(test)',function (obj) {
+            var data = obj.data;
+            var id = data.id;
+            if (obj.event == 'add') {
+                layer.confirm('是否确定购买', function(index){
+
+                    $.ajax({
+                        url:'http://localhost:8099/del',
+                        data:{id:id},
+                        success:function () {
+                            alert('购买成功')
+                        },
+                        error:function () {
+                            alert('购买失败')
+                        }
+
+                    });
+                    obj.del();
+                    layer.close(index);
+
+
+                });
+            }
+        });
+
+    });
+
+</script>
+
+</body>
+<style>
+    .layui-table-cell{
+        width: 200px;
+        height: auto;
+    }
+</style>
+</html>

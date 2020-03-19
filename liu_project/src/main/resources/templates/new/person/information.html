@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+    <title>个人资料</title>
+
+    <link href="../../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/amazeui/2.5.1/css/amazeui.css" rel="stylesheet" type="text/css" />
+
+    <link href="../../css/personal.css" rel="stylesheet" type="text/css">
+    <link href="../../css/infstyle.css" rel="stylesheet" type="text/css">
+    <script src="../../assets/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+<!--头 -->
+<header>
+    <article>
+        <div class="mt-logo">
+            <div class="nav white">
+                <div class="logoBig">
+                    <li><img src="../../images/logobig.png" /></li>
+                </div>
+
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        </div>
+    </article>
+</header>
+<div class="nav-table">
+    <div class="long-title"><span class="all-goods">全部分类</span></div>
+
+</div>
+<b class="line"></b>
+<div class="center">
+    <div class="col-main">
+        <div class="main-wrap">
+
+            <div class="user-info">
+                <!--标题 -->
+                <div class="am-cf am-padding">
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">个人资料</strong> / <small>Personal&nbsp;information</small></div>
+                </div>
+                <hr/>
+
+                <!--头像 -->
+                <div class="user-infoPic">
+
+                    <div class="filePic">
+                        <input type="file" class="inputPic" allowexts="gif,jpeg,jpg,png,bmp" accept="image/*">
+                        <img class="am-circle am-img-thumbnail" src="../../images/getAvatar.do.jpg" alt="" />
+                    </div>
+
+                    <p class="am-form-help">头像</p>
+
+                    <div class="info-m">
+                        <div><b>用户名：<span id="username"></span></b></div>
+                        <div class="u-safety">
+                        </div>
+                    </div>
+                </div>
+
+                <!--个人信息 -->
+                <div class="info-main">
+                    <form class="am-form am-form-horizontal">
+
+                        <div class="am-form-group">
+                            <label class="am-form-label">学号</label>
+                            <div class="am-form-content">
+                                <input type="text" id="xuehao" placeholder="nickname">
+
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label class="am-form-label">班级</label>
+                            <div class="am-form-content">
+                                <input type="text" id="banji" placeholder="name">
+
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <label for="user-phone" class="am-form-label">电话</label>
+                            <div class="am-form-content">
+                                <input id="user-phone" placeholder="telephonenumber" type="tel">
+
+                            </div>
+                        </div>
+                        <div class="am-form-group">
+                            <label for="user-email" class="am-form-label">电子邮件</label>
+                            <div class="am-form-content">
+                                <input id="user-email" placeholder="Email" type="email">
+
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <aside class="menu">
+        <ul>
+            <li class="person">
+                <a href="index.html">个人中心</a>
+            </li>
+            <li class="person">
+                <a href="#">个人资料</a>
+                <ul>
+                    <li class="active"> <a href="information.html">个人信息</a></li>
+                    <li> <a href="safety.html">安全设置</a></li>
+                    <li> <a href="address.html">收货地址</a></li>
+                </ul>
+            </li>
+            <li class="person">
+                <a href="#">我的交易</a>
+                <ul>
+                    <li><a href="order.html">订单管理</a></li>
+                    <li> <a href="change.html">退款售后</a></li>
+                </ul>
+            </li>
+            <li class="person">
+                <a href="#">我的资产</a>
+                <ul>
+                    <li> <a href="coupon.html">优惠券 </a></li>
+                    <li> <a href="bonus.html">红包</a></li>
+                    <li> <a href="bill.html">账单明细</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+
+    </aside>
+</div>
+
+</body>
+<script>
+    $(function () {
+        f();
+    });
+
+    function f() {
+        $.ajax({
+            url:"http://localhost:8099/inform",
+            success:function (data) {
+                $('#username').text(data[0].username);
+                $('#xuehao').val(data[0].username);
+                $('#banji').val(data[0].banji);
+                $('#user-email').val(data[0].email);
+                $('#user-phone').val(data[0].phone);
+            },
+            error:function () {
+                alert("服务器异常，请联系管理员")
+            }
+        })
+    }
+</script>
+</html>

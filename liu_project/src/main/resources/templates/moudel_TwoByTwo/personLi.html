@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>人力资源</title>
+    <script src="assets/js/jquery.min.js"></script>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+
+    <style>
+        body{
+            background-color: #9F9F9F;
+        }
+        span{
+            font-size: 17px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row" style="text-align: center"><h1 class="layui-col-xs11">法治社会，遵纪守法。天网恢恢，疏而不漏。</h1><button class="layui-btn layui-btn-radius layui-col-xs1" id="qiufangguo">我的发布</button></div>
+<br>
+<br>
+<div class="layui-container" style="width:100%;height: 100%">
+
+</div>
+</div>
+</body>
+<script>
+function f1(th) {
+    var me = $(th).attr('id');
+    layui.use('layer',function () {
+        var $ = layui.jquery, layer = layui.layer;
+        f2();
+        function f2() {
+                //示范一个公告层
+                layer.open({
+                    type: 1
+                    ,title: false //不显示标题栏
+                    ,closeBtn: false
+                    ,area: '400px;'
+                    ,shade: 0.8
+                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    ,btn: ['取消修改', '提交修改','撤销本次招聘']
+                    ,btnAlign: 'c'
+                    ,moveType: 1 //拖拽模式，0或者1
+                    ,content: '<input class="layui-input" placeholder="现需人数" id="duyiwuer">'
+                    ,success: function(layero){
+                        $('#duyiwuer').blur(function () {
+                            var pp = /^\+?[1-9][0-9]*$ /;
+                            var flag = pp.test(this.value);
+                            if (flag=='false') {
+                                $(this).val('请正确填写');
+                            }
+
+                        });
+                        var btn = layero.find('.layui-layer-btn');
+                        btn.find('.layui-layer-btn1').on('click',function () {
+                            var shu = $('#duyiwuer').val();
+                            alert(shu);
+                            alert(me);
+                            $.ajax({
+                                url:'http://localhost:8099/upl',
+                                data:{me:me,shu:shu},
+                                success:function () {
+                                    alert('修改成功');
+                                    window.location.reload();
+                                },
+                                error:function () {
+                                    alert('修改失败，联系管理员')
+                                }
+                            })
+                        });
+
+                        btn.find('.layui-layer-btn2').on('click',function () {
+                            // var shu = $('#duyiwuer').val();
+                            // alert(shu);
+                            alert(me);
+                            $.ajax({
+                                url:'http://localhost:8099/upl2',
+                                data:{me:me},
+                                success:function () {
+                                    alert('撤销成功');
+                                    window.location.reload();
+                                },
+                                error:function () {
+                                    alert('撤销失败，联系管理员')
+                                }
+                            })
+                        });
+                    }
+                });
+            };
+    });
+};
+    function f() {
+        $.ajax({
+            url:"http://localhost:8099/getPersonLi",
+            success:function (data) {
+                var html = "";
+                for (var i = 0;i<data.length;i++) {
+                    html+="<div class=\"layui-row\" style=\"border: 1px solid white\">\n" +
+                        "    <div class=\"layui-col-xs6\">\n" +
+                        "        <div class=\"center\" style=\"text-align: center\">\n" +
+                        "            <span>"+data[i].gangwei+"</span>\n" +
+                        "            <span>"+data[i].danjia+"</span>\n" +
+                        "            <span>元/时</span>\n" +
+                        "            <span>需要干(小时)</span>\n" +
+                        "            <span>"+data[i].ganshijian+"</span>\n" +
+                        "            <br>\n" +
+                        "            <span>出发日期:</span>\n" +
+                        "            <span>"+data[i].churiqi+"</span>\n" +
+                        "            <br>\n" +
+                        "            <span>工作地点:</span>\n" +
+                        "            <span>"+data[i].didian+"</span>\n" +
+                        "            <br>\n" +
+                        "            <span>报名截止时间:</span>\n" +
+                        "            <span>"+data[i].jiezhiriqi+"</span>\n" +
+                        "            <span>____现需人数:</span>\n" +
+                        "            <span class=\"layui-badge\">"+data[i].renshu+"</span>\n" +
+                        "            <span>"+data[i].yaoqiu+"</span>\n" +
+                        "        </div>\n" +
+                        "    </div>\n" +
+                        "    <div class=\"layui-col-xs6\">\n" +
+                        "        <div class=\"title\" style=\"font-size: 15px;text-align: center\">\n" +
+                        "            <span>发布者：</span>\n" +
+                        "            <span>"+data[i].grade+"</span>\n" +
+                        "            <span>"+data[i].class_+"</span>\n" +
+                        "            <span>"+data[i].name_+"</span>\n" +
+                        "            <br>\n" +
+                        "            <span>手机号：</span>\n" +
+                        "            <span>"+data[i].phone_+"</span><br/>\n" +
+                        "            <span>_   微信号:</span>\n" +
+                        "            <span>"+data[i].weixin+"</span>\n" +
+                        "            <br>\n" +
+                        "            <span>发布者账号:</span>\n" +
+                        "            <span class='user_'>"+data[i].user_+"</span><br/><button class='layui-btn bu' style='display: none' value='"+data[i].user_+"' id='"+data[i].id_+"' onclick='f1(this)'>修改</button>\n" +
+                        "        </div>\n" +
+                        "    </div></div><br/>"
+                }
+                $('.layui-container').html(html);
+
+            }
+        })
+
+    };
+    layui.use('layer', function(){
+        var $ = layui.jquery, layer = layui.layer;
+        f();
+        // function dudu(){
+        //     //示范一个公告层
+        //     layer.open({
+        //         type: 1
+        //         ,title: false //不显示标题栏
+        //         ,closeBtn: false
+        //         ,area: '300px;'
+        //         ,shade: 0.8
+        //         ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        //         ,btn: ['取消修改', '提交修改','撤销本次招聘']
+        //         ,btnAlign: 'c'
+        //         ,moveType: 1 //拖拽模式，0或者1
+        //         ,content: '<input class="layui-input" placeholder="现需人数" id="duyiwuer">'
+        //         ,success: function(layero){
+        //             $('#duyiwuer').blur(function () {
+        //                 var pp = /^\+?[1-9][0-9]*$ /;
+        //                 var flag = pp.test(this.value);
+        //                 if (flag=='false') {
+        //                     $(this).val('请正确填写');
+        //                 }
+        //
+        //             });
+        //             var btn = layero.find('.layui-layer-btn');
+        //             btn.find('.layui-layer-btn1').on('click',function () {
+        //                 var me = $(this).attr('id');
+        //                 var shu = $('#duyiwuer');
+        //                 $.ajax({
+        //                     url:'http://localhost:8099/uPL',
+        //                     data:{me:me,shu:shu},
+        //                     success:function () {
+        //                         alert('修改成功');
+        //                         window.location.reload();
+        //                     },
+        //                     error:function () {
+        //                         alert('修改失败，联系管理员')
+        //                     }
+        //                 })
+        //             });
+        //         }
+        //     });
+        // };
+
+        $('#qiufangguo').on('click',function () {
+            $.ajax({
+                url: 'http://localhost:8099/getU',
+                success:function (data) {
+                    alert(data);
+                    $('.bu').each(function (i,val) {
+                        if ($(this).val()==data) {
+                            $(this).css('display','block')
+                        }
+                    })
+                }
+            })
+        });
+    });
+</script>
+</html>

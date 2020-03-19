@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>首页</title>
+
+    <link href="https://cdn.bootcss.com/amazeui/2.5.1/css/amazeui.css" rel="stylesheet" type="text/css" />
+    <link href="../../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+
+    <link href="../../basic/css/demo.css" rel="stylesheet" type="text/css" />
+
+    <link href="../../css/hmstyle.css" rel="stylesheet" type="text/css"/>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.bootcss.com/amazeui/2.5.1/js/amazeui.min.js"></script>
+
+</head>
+
+<body>
+<div class="hmtop">
+    <!--顶部导航条 -->
+    <div class="header-top">
+        <div class="am-container header">
+
+            <ul class="message-r">
+                <div class="topMessage my-shangcheng">
+                    <div class="menu-hd MyShangcheng"><a href="../person/index.html" target="_top">会员中心</a></div>
+                </div>
+                <div class="topMessage mini-cart">
+                    <div class="menu-hd"><a id="mc-menu-hd" href="shopcart.html" target="_top"><span>商户中心</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <!--悬浮搜索框-->
+
+    <div class="nav white">
+        <div class="logo"><img src="../images/logo.png" /></div>
+        <div class="logoBig">
+            <li><img src="../../images/logobig.png" /></li>
+        </div>
+
+        <div class="search-bar pr">
+            <a name="index_none_header_sysc" href="#"></a>
+            <form>
+                <input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
+                <input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+            </form>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<div class="banner">
+    <!--轮播 -->
+    <div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
+        <ul class="am-slides">
+            <li class="banner1"><a href="introduction.html"><img src="../images/ad1.jpg" /></a></li>
+            <li class="banner2"><a><img src="../../images/ad2.jpg" /></a></li>
+            <li class="banner3"><a><img src="../../images/ad3.jpg" /></a></li>
+            <li class="banner4"><a><img src="../../images/ad4.jpg" /></a></li>
+
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="shopNav">
+    <div class="slideall">
+
+        <div class="long-title"><span class="all-goods">全部分类</span></div>
+        <!--侧边导航 -->
+        <div id="nav" class="navfull">
+            <div class="area clearfix">
+                <div class="category-content" id="guide_2">
+
+                    <div class="category">
+                        <ul class="category-list" id="js_climit_li">
+                            <li class="appliance js_toggle relative first">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/cake.png"></i><a class="ml-22" title="点心">点心/蛋糕</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">蛋糕</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="饼干">饼干</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="猪肉脯">猪肉脯</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="豆干">豆干</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">坚果</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="糖果">糖果</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蜜饯">蜜饯</span></dt>
+                                                        <dd><a title="猕猴桃干" href="#"><span>猕猴桃干</span></a></dd>
+                                                        <dd><a title="糖樱桃" href="#"><span>糖樱桃</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">巧克力</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">果冻</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/fish.png"></i><a class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="海带丝">海带丝</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="小鱼干">小鱼干</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/tea.png"></i><a class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">蛋糕</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="蛋糕">点心</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="appliance js_toggle relative last">
+                                <div class="category-info">
+                                    <h3 class="category-name b-category-name"><i><img src="../../images/package.png"></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
+                                    <em>&gt;</em></div>
+                                <div class="menu-item menu-in top">
+                                    <div class="area-in">
+                                        <div class="area-bg">
+                                            <div class="menu-srot">
+                                                <div class="sort-side">
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="大包装">大包装</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+                                                        <dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
+                                                        <dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
+                                                        <dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
+                                                        <dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
+                                                        <dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+                                                    </dl>
+                                                    <dl class="dl-sort">
+                                                        <dt><span title="两件套">两件套</span></dt>
+                                                        <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+                                                        <dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
+                                                        <dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
+                                                        <dd><a title="软面包" href="#"><span>软面包</span></a></dd>
+
+                                                    </dl>
+                                                </div>
+                                                <div class="brand-side">
+                                                    <dl class="dl-sort"><dt><span>实力商家</span></dt>
+                                                        <dd><a title="琳琅鞋业" target="_blank" href="#" rel="nofollow"><span >琳琅鞋业</span></a></dd>
+                                                        <dd><a title="宏利鞋业" target="_blank" href="#" rel="nofollow"><span >宏利鞋业</span></a></dd>
+                                                        <dd><a title="比爱靓点鞋业" target="_blank" href="#" rel="nofollow"><span >比爱靓点鞋业</span></a></dd>
+                                                        <dd><a title="浪人怪怪" target="_blank" href="#" rel="nofollow"><span >浪人怪怪</span></a></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--轮播-->
+
+        <script type="text/javascript">
+            (function() {
+                $('.am-slider').flexslider();
+            });
+            $(document).ready(function() {
+                $("li").hover(function() {
+                    $(".category-content .category-list li.first .menu-in").css("display", "none");
+                    $(".category-content .category-list li.first").removeClass("hover");
+                    $(this).addClass("hover");
+                    $(this).children("div.menu-in").css("display", "block")
+                }, function() {
+                    $(this).removeClass("hover")
+                    $(this).children("div.menu-in").css("display", "none")
+                });
+            })
+        </script>
+
+        <div class="clear"></div>
+    </div>
+    <script type="text/javascript">
+        if ($(window).width() < 640) {
+            function autoScroll(obj) {
+                $(obj).find("ul").animate({
+                    marginTop: "-39px"
+                }, 500, function() {
+                    $(this).css({
+                        marginTop: "0px"
+                    }).find("li:first").appendTo(this);
+                })
+            }
+            $(function() {
+                setInterval('autoScroll(".demo")', 3000);
+            })
+        }
+    </script>
+</div>
+<div class="shopMainbg">
+    <div class="clear "></div>
+    <!--热门活动 -->
+
+    <div class="am-container activity ">
+        <div class="shopTitle ">
+            <h4>活动</h4>
+        </div>
+        <div class="am-g am-g-fixed ">
+            <div class="am-u-sm-3 ">
+                <div class="icon-sale one "></div>
+                <h4>秒杀</h4>
+                <div class="activityMain ">
+                    <img src="../../images/activity1.jpg "></img>
+                </div>
+                <div class="info ">
+                    <h3>春节送礼优选</h3>
+                </div>
+            </div>
+
+            <div class="am-u-sm-3 ">
+                <div class="icon-sale two "></div>
+                <h4>特惠</h4>
+                <div class="activityMain ">
+                    <img src="../../images/activity2.jpg "></img>
+                </div>
+                <div class="info ">
+                    <h3>春节送礼优选</h3>
+                </div>
+            </div>
+
+            <div class="am-u-sm-3 ">
+                <div class="icon-sale three "></div>
+                <h4>团购</h4>
+                <div class="activityMain ">
+                    <img src="../../images/activity3.jpg "></img>
+                </div>
+                <div class="info ">
+                    <h3>春节送礼优选</h3>
+                </div>
+            </div>
+
+            <div class="am-u-sm-3 last ">
+                <div class="icon-sale "></div>
+                <h4>超值</h4>
+                <div class="activityMain ">
+                    <img src="../../images/activity.jpg "></img>
+                </div>
+                <div class="info ">
+                    <h3>春节送礼优选</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clear "></div>
+
+    <div id="f4">
+        <!--坚果-->
+        <div class="am-container ">
+            <div class="shopTitle ">
+                <h4>推荐</h4>
+                <h3>美味可口，回味无穷</h3>
+                <span class="more ">
+                        </span>
+            </div>
+        </div>
+        <div class="am-g am-g-fixed floodThree ">
+            <div class="am-u-sm-4 text-four list">
+                <div class="word">
+                    <a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+                    <a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+                    <a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+                    <a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+                    <a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+                    <a class="outer" href="#"><span class="inner"><b class="text">核桃</b></span></a>
+                </div>
+                <a href="# ">
+                    <img src="../../images/act1.png " />
+                    <div class="outer-con ">
+                        <div class="title ">
+                            雪之恋和风大福
+                        </div>
+                    </div>
+                </a>
+                <div class="triangle-topright"></div>
+            </div>
+
+            <div class="am-u-sm-6 am-u-md-3 text-five ">
+                <a href="# ">
+                    <img src="../../images/8.jpg" />
+                    <div class="outer-con ">
+                        <div class="title ">
+                            雪之恋和风大福
+                        </div>
+                        <div class="sub-title ">
+                            ¥13.8
+                        </div>
+                        <i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript " src="../../basic/js/quick_links.js "></script>
+</body>
+
+</html>

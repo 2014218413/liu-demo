@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="assets/js/jquery.min.js"></script>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+</head>
+<body>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+<script id="bar" type="text/html">
+    <a class="layui-btn" lay-event="chakan">联系买家</a>
+</script>
+</body>
+<script th:inline="none">
+    layui.use('table',function () {
+        var table = layui.table;
+        table.render({
+            elem:'#test',
+            url:'http://localhost:8099/getYiMai',
+            parseData:function (res) {
+                res.code = '0';
+                res.data = res;
+                res.message = '';
+                return res;
+            },
+            totalRow:true,
+            cols:[[
+                {field:'id', title:'商品序号'}
+                ,{field:'title_', title:'商品类别'}
+                ,{field:'goumaizhe', title:'购买者'}
+                ,{field:'message', title:'描述'}
+                // ,{field:'email', title:'邮箱', width:150, edit: 'text', templet: function(res){
+                //         return '<em>'+ res.email +'</em>'
+                //     }}
+                ,{field:'price', title:'价格'}
+                ,{field:'goumaishijian', title:'购买时间'}
+                ,{field:'lianxi', title:'操作',toolbar:'#bar'}
+            ]],
+            page:true
+        });
+        table.on('tool(test)',function (obj) {
+            var data = obj.data;
+            var message = data.goumaizhe;
+            if (obj.event=='chakan') {
+                layer.confirm('是否确定',function () {
+                    $.ajax({
+                        url:'http://localhost:8099/getMessage',
+                        data:{message:message},
+                        success:function (da) {
+                            alert('卖家邮箱：'+da[0].email+"   卖家电话:"+da[0].phone);
+                        },
+                        error:function () {
+                            alert('查询失败，联系管理员')
+                        }
+                    })
+                })
+            }
+        })
+    })
+</script>
+</html>

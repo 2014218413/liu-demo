@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="themepresss">
+
+    <!-- Page Title -->
+    <title>Payra Personal Portfolio Template</title>
+    <script src="assets/js/jquery.min.js"></script>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <!-- Icon fonts -->
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/flaticon.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
+
+    <!-- Plugins for this template -->
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.css" rel="stylesheet">
+    <link href="assets/css/slick.css" rel="stylesheet">
+    <link href="assets/css/slick-theme.css" rel="stylesheet">
+    <link href="assets/css/owl.transitions.css" rel="stylesheet">
+    <link href="assets/css/jquery.fancybox.css" rel="stylesheet">
+    <link href="assets/css/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- start page-wrapper -->
+<div class="page-wrapper" id="home">
+    <!-- start page-loader -->
+    <div class="preloader">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+    <!-- end page-loader -->
+
+    <!-- Start header -->
+    <header id="header" class="site-header header-style-1">
+        <nav class="navigation navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="open-btn">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://localhost:8099/assets/images/favicon.png"><img src="assets/images/favicon.png" style="width: 30px;height: 30px" alt></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse navigation-holder">
+                    <button class="close-navbar"><i class="ti-close"></i></button>
+                    <button class="close-navbar-2"><i class="ti-close"></i></button>
+                    <ul class="nav navbar-nav">
+                        <li class="home"><a href="#home"><img src="assets/images/home/img-1.jpg" alt=""></a></li>
+                        <li class="about"><a href="#about"><img src="assets/images/home/img-6.jpg" alt=""></a></li>
+                        <li class="service"><a href="#service"><img src="assets/images/home/img-4.jpg" alt=""></a></li>
+                        <li class="protfolio"><a href="#protfolio"><img src="assets/images/home/img-5.jpg" alt=""></a></li>
+                        <li class="blog"><a href="#blog"><img src="assets/images/home/img-2.jpg" alt=""></a></li>
+                        <li class="contact"><a href="#contact"><img src="assets/images/home/img-3.jpg" alt=""></a></li>
+                    </ul>
+                </div><!-- end of nav-collapse -->
+                <!--<div class="menu-open-btn-holder">-->
+                    <!--<button class="menu-open-btn">-->
+                        <!--<span></span>-->
+                        <!--<span></span>-->
+                        <!--<span></span>-->
+                    <!--</button>-->
+                <!--</div>-->
+            </div><!-- end of container -->
+        </nav>
+    </header>
+    <!-- end of header -->
+
+
+    <!-- start of hero -->
+    <section class="hero hero-slider-wrapper hero-style-1">
+        <div class="hero-slider">
+            <div class="slide">
+                <div class="slider-image">
+                    <img src="assets/images/slider/slide-2.jpg" alt class="slider-bg">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-md-7 col-sm-10 slide-caption">
+                            <div class="slide-subtitle">
+                                <h4>莫听穿林打叶声，何妨吟啸且徐行。</h4>
+                                <h4>竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。</h4>
+                                <h4>料峭春风吹酒醒，微冷，山头斜照却相迎。</h4>
+                                <h4>回首向来萧瑟处，归去，也无风雨也无晴。</h4>
+                            </div>
+                            <div class="slide-title">
+                                <h2>Be yourself</h2>
+                            </div>
+                            <div class="btns">
+                                <button data-method="confirmTransRegister" class="layui-btn" id="register">用户注册</button>
+                                <button data-method="confirmTransLogin" class="layui-btn" id="login">用户登录</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy"><p>Creative Designer And Developer</p></div>
+        <div class="social-links">
+            <ul>
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
+                <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                <li><a href="#"><i class="ti-pinterest"></i></a></li>
+            </ul>
+        </div>
+    </section>
+    <!-- end of hero slider -->
+    <!-- about-area start -->
+    <div id="about" class="about-area">
+        <div class="border"></div>
+        <div class="container">
+            <div class="about-item">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-img">
+                            <img src="assets/images/about/1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-content">
+                            <h2>About The System</h2>
+                            <p>每一样东西都有它存在的意义与价值，人也一样即使再渺小。</p>
+                            <p>能充分利用资源的就是强者，倘若没有那么就是缺少一个途径。该平台致力于信息的发布与咨询，校园闲置物品的再使用，物品的等价交换，丢失物品的寻找，以及人力资源效益的最大化</p>
+                            <p>你手中所认为的废品可能对他人来说有着巨大的价值。你心急如焚想要找到的有着特别意义的失物可能就在某人的眼前与手中只是他不知道而已。你不知道的事和走的弯路也许别人早就经历过了，而你与避过这些只差前人的一句忠告，你迫切的想要得到的帮助对于他人来说可能就是举手之劳，可惜他听不到也看不见。</p>
+                            <p>一个人的圈子很小很小能力也极其有限，那我们就更需要一根绳子将千万个你我他串联起来组成一个强大的集体。这样既有利于我也有利于你。
+                            社会是极其残酷的，但是如果能和老师，学哥学姐，学弟学妹们一起砥砺前行的话前景一定很美妙。
+                            </p>
+                            <p>已经走入社会的你们，将要步入社会的我们，还有在校园的他们 大家都属于弱势群体，所以我们更应该抱团取暖。你以前所帮助过的懵懂学弟在不久的将来可能就是你的得力干将，左膀右臂。
+                            也可能在你事业生死一线的时候助你起死回生一飞冲天，也有可能多年后他成为了你的上司。 世界之大无奇不有。
+                            </p>
+                            <a href="#" class="theme-btn">Download Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about-area end -->
+    <!-- service-area start -->
+    <div id="service" class="service-area section-padding">
+        <div class="border"></div>
+        <div class="container">
+            <div class="col-l2">
+                <div class="section-title section-title2 text-center">
+                    <!--<span>What I am Expert In</span>-->
+                    <h2>My Service</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-section">
+                        <div class="services-wrapper">
+                            <div class="services-icon-wrapper services-icon-wrapper">
+                                <div class="service-dot">
+                                    <div class="dots"></div>
+                                </div>
+                                <i class="fi flaticon-laptop"></i>
+                            </div>
+                            <div class="service-content">
+                                <h2>信息发布与咨询</h2>
+                                <p> 该板块包括校园专场和社会专场只要是有意义的对他人有帮助的都可以分享出来</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-section">
+                        <div class="services-wrapper">
+                            <div class="services-icon-wrapper">
+                                <div class="service-dot">
+                                    <div class="dots"></div>
+                                </div>
+                                <i class="fi flaticon-web-programming"></i>
+                            </div>
+                            <div class="service-content">
+                                <h2>闲置二手货物出售</h2>
+                                <p>每天被浪费丢弃的物品不计其数，它们应该实现应有的价值。你不需要的有可能就是别人渴望的</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-section">
+                        <div class="services-wrapper">
+                            <div class="services-icon-wrapper">
+                                <div class="service-dot">
+                                    <div class="dots"></div>
+                                </div>
+                                <i class="fi flaticon-color"></i>
+                            </div>
+                            <div class="service-content">
+                                <h2>物品等价交换</h2>
+                                <p>不仅能够提升物品的利用率，还能减少不必要的花销。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-section">
+                        <div class="services-wrapper">
+                            <div class="services-icon-wrapper">
+                                <div class="service-dot">
+                                    <div class="dots"></div>
+                                </div>
+                                <i class="fi flaticon-smartphone"></i>
+                            </div>
+                            <div class="service-content">
+                                <h2>失物寻找</h2>
+                                <p>一个人的能力有限，那么借助平台大家互帮互助，提升影响力。营造良好的氛围</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-section">
+                        <div class="services-wrapper">
+                            <div class="services-icon-wrapper">
+                                <div class="service-dot">
+                                    <div class="dots"></div>
+                                </div>
+                                <i class="fi flaticon-settings-gears"></i>
+                            </div>
+                            <div class="service-content">
+                                <h2>人力资源</h2>
+                                <p>可以在这里发布悬赏任务，这样不仅可以给其他人带来相应的经济收入还能方便自己。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-section">
+                        <div class="services-wrapper">
+                            <div class="services-icon-wrapper">
+                                <div class="service-dot">
+                                    <div class="dots"></div>
+                                </div>
+                                <i class="fi flaticon-support"></i>
+                            </div>
+                            <div class="service-content">
+                                <h2>校园八卦</h2>
+                                <p> If you want to know</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- service-area end -->
+    <!--Start project area-->
+    <section id="protfolio" class="gallery-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12 sortable-gallery">
+                    <div class="gallery-filters">
+                        <div class="section-title">
+                            <span>Portfolio</span>
+                            <h2>Work I Have Done</h2>
+                        </div>
+                        <ul>
+                            <li><a data-filter="*" href="#" class="current">All</a></li>
+                            <li><a data-filter=".Web-Design" href="#">Web Design</a></li>
+                            <li><a data-filter=".Print-Design" href="#">Print Design</a></li>
+                            <li><a data-filter=".Web-Application" href="#">Web Application</a></li>
+                            <li><a data-filter=".Photography" href="#">Photography</a></li>
+                        </ul>
+                    </div>
+                    <div class="gallery-container gallery-fancybox masonry-gallery">
+                        <div class="grid Print-Design Web-Application Photography">
+                            <a href="assets/images/gallery/img-1.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                <img src="assets/images/gallery/img-1.jpg" alt class="img img-responsive">
+                                <div class="icon">
+                                    <i class="ti-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="grid Web-Design Print-Design Web-Application">
+                            <a href="assets/images/gallery/img-2.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                <img src="assets/images/gallery/img-2.jpg" alt class="img img-responsive">
+                                <div class="icon">
+                                    <i class="ti-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="grid Print-Design Photography">
+                            <a href="assets/images/gallery/img-3.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                <img src="assets/images/gallery/img-3.jpg" alt class="img img-responsive">
+                                <div class="icon">
+                                    <i class="ti-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="grid Web-Design Web-Application">
+                            <a href="assets/images/gallery/img-4.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                <img src="assets/images/gallery/img-4.jpg" alt class="img img-responsive">
+                                <div class="icon">
+                                    <i class="ti-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="grid Print-Design Photography">
+                            <a href="assets/images/gallery/img-5.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                <img src="assets/images/gallery/img-5.jpg" alt class="img img-responsive">
+                                <div class="icon">
+                                    <i class="ti-plus"></i>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="grid Web-Design Print-Design Photography Web-Application">
+                            <a href="assets/images/gallery/img-6.jpg" class="fancybox" data-fancybox-group="gall-1">
+                                <img src="assets/images/gallery/img-6.jpg" alt class="img img-responsive">
+                                <div class="icon">
+                                    <i class="ti-plus"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end row -->
+        </div>
+    </section>
+    <!--End project area-->
+    <!-- testimonial-area start -->
+    <div class="testimonial-area">
+        <div class="container">
+            <div class="testimonial-active owl-carousel">
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <div class="testimonial-icon">
+                            <i class="fi flaticon-writer"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>好花难种不长开，少年易过不重来。人生不向花前醉，花笑人生也是呆。
+                            </p>
+                        </div>
+                        <div class="testimonial-img">
+                            <img src="assets/images/testimonial/3.jpg" alt="">
+                        </div>
+                        <div class="testimonial-content">
+                            <h4>刘圣恩</h4>
+                            <span>什么都要瞻前顾后循规蹈矩那就像万物失去了颜色</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <div class="testimonial-icon">
+                            <i class="fi flaticon-writer"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>世界纷扰，烦恼无数，原因只有三点，看不透，想不开，放不下！</p>
+                        </div>
+                        <div class="testimonial-img">
+                            <img src="assets/images/testimonial/2.jpg" alt="">
+                        </div>
+                        <div class="testimonial-content">
+                            <h4>刘圣恩</h4>
+                            <span>什么都没有拥有一个好身体重要，绝症面前万金也就二字而已</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                        <div class="testimonial-icon">
+                            <i class="fi flaticon-writer"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>人活一世，无论顺境逆境，气不能泄，劲不能丢</p>
+                        </div>
+                        <div class="testimonial-img">
+                            <img src="assets/images/testimonial/1.jpg" alt="">
+                        </div>
+                        <div class="testimonial-content">
+                            <h4>刘圣恩</h4>
+                            <span>励志不结婚</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact-page-area section-padding go-contact-area">
+        <div class="container">
+            <div class="col-l2">
+                <div class="section-title section-title2 text-center">
+                    <!--<span>如无账号密码请先注册，有则直接登录</span>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5">
+                    <div class="contact-page-item">
+                        <h2>维护人员联系方式</h2>
+                        <span>微信：17631285973</span><span>QQ:2014218413</span>
+                        </p>
+                        <div class="adress">
+                            <h3>Address</h3>
+                            <span>河北科技大学理工学院</span>
+                        </div>
+                        <div class="phone">
+                            <h3>Phone</h3>
+                            <span>17631285973</span>
+                        </div>
+                        <div class="email">
+                            <h3>Email</h3>
+                            <span>2014218413@qq.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col col-xs-12">
+                <div class="contact-map">
+                    <iframe src="http://www.google.cn/maps/embed?pb=!1m18!1m12!1m3!1d57763.58882182253!2d55.38442113562169!3d25.195692423227655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2z4Kam4KeB4Kas4Ka-4KaHIC0g4Kam4KeB4Kas4Ka-4KaHIOCmhuCmruCmv-CmsOCmvuCmpCAtIOCmuOCmguCmr-CngeCmleCnjeCmpCDgpobgprDgpqwg4KaG4Kau4Ka_4Kaw4Ka-4Kak!5e0!3m2!1sbn!2sbd!4v1540725271741" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="footer-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-image">
+                        <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="footer-menu">
+                        <ul class="d-flex " >
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-dribbble"></i></a></li>
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="footer-sub">
+                        <p><i class="fa fa-copyright"></i>回首展望，全力以赴</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-area end -->
+
+
+
+
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/easing-min.js"></script>
+
+<!-- Plugins for this template -->
+<script src="assets/js/jquery-plugin-collection.js"></script>
+
+<!-- Custom script for this template -->
+<script src="assets/js/script.js"></script>
+
+</body>
+<script>
+    window.onload = check();
+
+    layui.use(['form','laydate','layer'],function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        /*
+        * layui对下拉框等组件会默认进行隐藏，所以要开启渲染 from.render();
+        * 但是此处要渲染的select在layer的弹出层中，所以form.render 要加在layer中----------》见下
+        * */
+
+        //这里是监测  标有lay-filter：Demo 的按钮点击后，就会触发这里
+        form.on('submit(Demo)',function (data) {
+            alert("注册成功------------------------");
+        });
+        /*
+        * lay-verify="tt"  表单验证
+        * */
+        form.verify({
+            tt: function(value){
+                if(value.length < 5){
+                    return '标题至少得5个字符啊';
+                }
+            }
+            ,pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+        });
+        var active= {
+            confirmTransLogin: function(){
+                //示范一个公告层
+                layer.open({
+                    type: 1
+                    ,title: false //不显示标题栏
+                    ,closeBtn: false
+                    ,area: '600;'
+                    ,shade: 0.8
+                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    // ,btn: ['火速围观', '残忍拒绝']
+                    ,btn: ['退出']
+                    ,btnAlign: 'c'
+                    ,moveType: 1 //拖拽模式，0或者1
+                    ,content: '<form method="post" action="http://localhost:8099/login" class="layui-form"><div class="layui-form-item">\n' +
+                        '                                <br><input id="username" type="text" name="username" class="form-control" placeholder="Your Username" lay-verify="tt" >\n' +
+                        '                                </div>\n' +
+                        '                                <br><div class="layui-form-item">\n' +
+                        '                                    <input id="password" type="password" name="password" class="form-control" placeholder="Your Password" lay-verify="pass">\n' +
+                        '                                </div>\n' +
+                        '                                <br><div class="layui-form-item">\n' +
+                        '                                        <div class="layui-input-block">\n' +
+                        '                                            <button type="submit" class="layui-btn" lay-submit="" lay-filter="" id="submit">立即提交</button>\n' +
+                        '                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div></form>'
+                    ,success: function(layero){
+                        var btn = layero.find('.layui-layer-btn');
+
+                    }
+                });
+            },
+            confirmTransRegister:function () {
+                layer.open({
+                    type: 1
+                    ,
+                    title: false //不显示标题栏
+                    ,
+                    closeBtn: false
+                    ,
+                    area: '600;'
+                    ,
+                    shade: 0.8
+                    ,
+                    id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                    // ,btn: ['火速围观', '残忍拒绝']
+                    ,
+                    btn: ['退出']
+                    ,
+                    btnAlign: 'c'
+                    ,
+                    success:function(){
+                        form.render();
+                    }
+                    ,
+                    moveType: 1 //拖拽模式，0或者1
+                    ,
+                    content: '<form method="post" action="http://localhost:8099/register" class="layui-form"><div class="layui-form-item">\n' +
+                        '                                <br><input id="username" type="text" name="username" class="form-control" placeholder="本人学号" lay-verify="tt" >\n' +
+                        '                                </div>\n' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <br><input id="password" type="password" name="password" class="form-control" placeholder="设置密码" lay-verify="pass">\n' +
+                        '                                </div>\n' + '                                ' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <select name="grade" lay-verify="required" id="selectGrade"><option value="">所在年级</option><option>2019级</option><option>2018级</option><option>2017级</option><option>2016级</option></select>\n' +
+                        '                                </div>\n' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <br><input id="banji" type="text" name="banji" class="form-control" placeholder="所在班级" lay-verify="required">\n' +
+                        '                                </div>\n' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <br><input id="phone" type="tel" name="phone" class="form-control" placeholder="手机号码" lay-verify="required|phone">\n' +
+                        '                                </div>\n' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <br><input id="email" type="text" name="email" class="form-control" placeholder="本人邮箱" lay-verify="email">\n' +
+                        '                                </div>\n' +
+                        '                                <div class="layui-form-item">\n' +
+                        '                                <br><textarea name="note"  id="other" placeholder="请在这里填写宿舍地址和其他关于您的详细介绍....." style="color: black"></textarea>\n' +
+                        '                                </div><div class="layui-form-item">\n' +
+                        '                                        <div class="layui-input-block">\n' +
+                        '                                            <button type="submit" class="layui-btn" lay-submit="" lay-filter="Demo" id="submit">立即提交</button>\n' +
+                        '                                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>\n' +
+                        '                                        </div>\n' +
+                        '                                    </div></form>'
+                });
+            }
+        };
+        $('.layui-btn').on('click', function(){
+            var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+        });
+    });
+
+    function check() {
+        var message = window.location.search;
+        if(message!=""){
+            alert("登录出错，请验证账号密码是否输入正确!!!!!!");
+
+        }
+    }
+</script>
+</html>

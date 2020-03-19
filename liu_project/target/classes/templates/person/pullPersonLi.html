@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>发布招聘信息</title>
+    <script src="assets/js/jquery.min.js"></script>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="assets/js/jqueyr.js"></script>
+    <style>
+        form{
+            font-size: 16px;
+            font-weight: bold;
+            opacity:80%;
+            color: #8B4513;
+        }
+        body{
+            background-image:url("images/lingerie-fashion.jpg");
+            height: 100%;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+<form class="layui-form" action="http://localhost:8099/savePersonLi" method="post">
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">所在年级:</label>
+            <div class="layui-input-inline">
+                <select lay-verify="required" lay-search="" name="grade">
+                    <option value="">请选择所在年级</option>
+                    <option value="2016级">2016级</option>
+                    <option value="2017级">2017级</option>
+                    <option value="2018级">2018级</option>
+                    <option value="2019级">2019级</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">所在班级:</label>
+            <div class="layui-input-inline">
+                <input type="text" lay-verify="required" name="class_" class="layui-input renzhun">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">姓名:</label>
+            <div class="layui-input-inline">
+                <input type="text" lay-verify="required" name="name_" class="layui-input renzhun">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">联系电话:</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="phone_" lay-verify="required|phone" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">微信:</label>
+            <div class="layui-input-inline">
+                <input type="tel" name="weixin" lay-verify="required" class="layui-input renzhun">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">招聘岗位</label>
+        <div class="layui-input-block">
+            <input type="text" name="gangwei" lay-verify="required" class="layui-input renzhun">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">单价(/时)</label>
+            <div class="layui-input-inline">
+                <input type="number" name="danjia" lay-verify="required|number" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">需工作时间(小时)</label>
+            <div class="layui-input-inline">
+                <input type="number" name="ganshijian" lay-verify="required|number" class="layui-input">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">工作地点</label>
+        <div class="layui-input-block">
+            <input type="text" name="didian" lay-verify="required" class="layui-input renzhun">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">出发日期</label>
+        <div class="layui-input-block">
+            <input type="text" name="churiqi" lay-verify="required" class="layui-input date_" placeholder="斯人如彩虹遇上方之有"id="date">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">现需人数</label>
+            <div class="layui-input-inline">
+                <input type="number" class="layui-input" name="renshu" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">性别要求</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="sex" value="男" title="男">
+                <input type="radio" name="sex" value="女" title="女">
+                <input type="radio" name="sex" value="男女均可" title="男女均可" checked="">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">报名截止时间</label>
+            <div class="layui-input-block">
+                <input type="text" name="jiezhishijian" lay-verify="required" class="layui-input date_" placeholder="在人间已是癫" id="date2">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" type="submit" style="width: 800px;" id="btnSubmit" lay-submit>
+                提交处理
+            </button>
+        </div>
+    </div>
+</form>
+<!--<button id="001">ssss</button>-->
+</body>
+<script>
+    layui.use(['form','layer','laydate'],function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        var laydate = layui.laydate;
+        $('.date_').each(function () {
+            laydate.render({
+                elem:this,
+                type:'datetime',
+                format:'yyyy-MM-dd HH:mm:ss'
+            })
+        })
+    })
+</script>
+</html>

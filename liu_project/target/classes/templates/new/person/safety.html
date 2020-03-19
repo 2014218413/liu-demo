@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+
+    <title>安全设置</title>
+
+    <link href="../../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/amazeui/2.5.1/css/amazeui.css" rel="stylesheet" type="text/css" />
+
+    <link href="../../css/personal.css" rel="stylesheet" type="text/css">
+    <link href="../../css/infstyle.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../assets/js/jquery.min.js"></script>
+</head>
+
+<body>
+<!--头 -->
+<header>
+    <article>
+        <div class="mt-logo">
+            <!--顶部导航条 -->
+            <div class="am-container header">
+
+                <!--悬浮搜索框-->
+
+                <div class="nav white">
+                    <div class="logoBig">
+                        <li><img src="../../images/logobig.png" /></li>
+                    </div>
+
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </article>
+</header>
+<div class="nav-table">
+    <div class="long-title"><span class="all-goods">全部分类</span></div>
+
+</div>
+<b class="line"></b>
+<div class="center">
+    <div class="col-main">
+        <div class="main-wrap">
+
+            <!--标题 -->
+            <div class="user-safety">
+                <div class="am-cf am-padding">
+                    <div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">账户安全</strong> / <small>Set&nbsp;up&nbsp;Safety</small></div>
+                </div>
+                <hr/>
+
+                <!--头像 -->
+                <div class="user-infoPic">
+
+                    <div class="filePic">
+                        <img class="am-circle am-img-thumbnail" src="../../images/getAvatar.do.jpg" alt="" />
+                    </div>
+
+                    <div class="info-m">
+                        <div><b>用户名：<span id="sn"></span></b></div>
+                    </div>
+                </div>
+
+                <div class="check">
+                    <ul>
+                        <li>
+                            <i class="i-safety-lock"></i>
+                            <div class="m-left">
+                                <div class="fore1">登录密码</div>
+                                <div class="fore2"><small>为保证您购物安全，建议您定期更改密码以保护账户安全。</small></div>
+                            </div>
+                            <div class="fore3">
+                                <a href="password.html">
+                                    <div class="am-btn am-btn-secondary">修改</div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <i class="i-safety-wallet"></i>
+                            <div class="m-left">
+                                <div class="fore1">密码找回</div>
+                                <div class="fore2"><small>启用支付密码功能，为您资产账户安全加把锁。</small></div>
+                            </div>
+                            <div class="fore3">
+                                <a href="setpay.html">
+                                    <div class="am-btn am-btn-secondary">立即启用</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="i-safety-iphone"></i>
+                            <div class="m-left">
+                                <div class="fore1">手机号绑定修改</div>
+                                <div class="fore2"><small>您验证的手机：186XXXXXXXX 若已丢失或停用，请立即更换</small></div>
+                            </div>
+                            <div class="fore3">
+                                <a href="bindphone.html">
+                                    <div class="am-btn am-btn-secondary">换绑</div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="i-safety-mail"></i>
+                            <div class="m-left">
+                                <div class="fore1">邮箱绑定修改</div>
+                                <div class="fore2"><small>您验证的邮箱：5831XXX@qq.com 可用于快速找回登录密码</small></div>
+                            </div>
+                            <div class="fore3">
+                                <a href="email.html">
+                                    <div class="am-btn am-btn-secondary">换绑</div>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!--底部-->
+
+    </div>
+
+    <aside class="menu">
+        <ul>
+            <li class="person">
+                <a href="index.html">个人中心</a>
+            </li>
+            <li class="person">
+                <a href="#">个人资料</a>
+                <ul>
+                    <li> <a href="information.html">个人信息</a></li>
+                    <li class="active"> <a href="safety.html">安全设置</a></li>
+                    <li> <a href="address.html">收货地址</a></li>
+                </ul>
+            </li>
+            <li class="person">
+                <a href="#">我的交易</a>
+                <ul>
+                    <li><a href="order.html">订单管理</a></li>
+                    <li> <a href="change.html">退款售后</a></li>
+                </ul>
+            </li>
+            <li class="person">
+                <a href="#">我的资产</a>
+                <ul>
+                    <li> <a href="coupon.html">优惠券 </a></li>
+                    <li> <a href="bonus.html">红包</a></li>
+                    <li> <a href="bill.html">账单明细</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </aside>
+</div>
+
+</body>
+<script>
+    $(function () {
+        f();
+    });
+    function f() {
+        $.ajax({
+            url:"http://localhost:8099/getUU",
+            success:function (data) {
+                $('#sn').text(data);
+            }
+        })
+    }
+</script>
+
+</html>
