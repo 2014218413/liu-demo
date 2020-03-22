@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车页面</title>
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/layui.js"></script>
+    <link rel="stylesheet" href="../../assets/css/layui.css">
+</head>
+<body>
+<!--<table class="layui-hide" id="test"></table>-->
+<table class="layui-table">
+    <thead>
+    <tr>
+        <th>品类</th>
+        <th>商品名</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>总价</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="tb01">
+<!--    <tr>-->
+<!--        <th>饮品类</th>-->
+<!--        <th>可乐</th>-->
+<!--        <th class="danjia">5</th>-->
+<!--        <th><button style="width: 20px" class="jia" onclick="jia(this)">+</button><input style="width: 60px" disabled="disabled" class="shuliang"><button onclick="jian(this)" style="width: 20px;" class="jian">-</button></th>-->
+<!--        <th class="zongjia">1</th>-->
+<!--        <th><button>删除</button></th>-->
+<!--    </tr>-->
+    </tbody>
+</table>
+<div class="con" style="width: 100%;height: 100px;border: 3px solid saddlebrown;border-radius: 25px">
+    <div style="margin-left: 70%">
+        <span class="layui-badge layui-bg-orange" style="margin-top: 20px"><span style="color: red;font-size: 25px">￥</span><span id="zongjiage" style="font-size: 25px"></span></span>
+        <br>
+            <button id="pay" class="layui-btn-danger layui-btn-radius" style="width: 70px;height: 40px">结算</button>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        f();
+        $('#pay').on('click',function () {
+            var message = "";
+            for (var i = 0;i<$('.tr001').length;i++) {
+                message+='货品类:'+$('.huopinlei_')[i].innerHTML+'_货品名:'+$('.huopinming_')[i].innerHTML+'_单价:'+$('.danjia')[i].innerHTML+'_数量:'+$('.shuliang')[i].innerHTML+'_合计:'+$('.zongjia')[i].innerHTML+"..";
+            };
+            var zhifu = $('#zongjiage').text();
+            alert(message);
+            alert(zhifu);
+            $.ajax({
+                url:"http://localhost:8099/Pmoney",
+                data: {message:message,zhifu:zhifu},
+                success:function () {
+                    window.location.href="pay.html";
+                },
+                error:function () {
+                    alert('服务器异常')
+                }
+            })
+        });
+    });
+    function f() {
+        $.ajax({
+            url:"http://localhost:8099/getCar",
+            success:function (data) {
+                var html = "";
+                for (var i = 0;i<data.length;i++) {
+                   html+="<tr class='tr001'>\n" +
+                       "        <th class='huopinlei_'>"+data[i].huopinlei+"</th>\n" +
+                       "        <th class='huopinming_'>"+data[i].huopinming+"</th>\n" +
+                       "        <th class=\"danjia\">"+data[i].jiage+"</th>\n" +
+                       "        <th><button style=\"width: 20px\" class=\"jia\" onclick=\"jia(this)\">+</button><span class='shuliang'>"+data[i].shumu+"</span><button onclick=\"jian(this)\" style=\"width: 20px;\" class=\"jian\">-</button></th>\n" +
+                       "        <th class=\"zongjia\">"+data[i].zongjia+"</th>\n" +
+                       "        <th><button class='layui-btn' onclick='deleteCar(this)'>删除</button></th>\n" +
+                       "    </tr>"
+                }
+                $('#tb01').html(html);
+                zongzong();
+            },
+            error:function () {
+                alert('服务器异常请联系管理员')
+            }
+        })
+    };
+    function deleteCar(th) {
+        var name = $(th).parent().parent().find('.huopinming_').text();
+        $.ajax({
+            url:"http://localhost:8099/deleteCar",
+            data:{name:name},
+            success:function (data) {
+                if (data=='1') {
+                    alert('删除成功');
+                    window.location.reload();
+                }
+                else {
+                    alert('删除失败');
+                }
+            },error:function () {
+                alert('服务器异常')
+            }
+        })
+    }
+    function zongzong() {
+        var zongzong = 0;
+        $('.zongjia').each(function () {
+            zongzong = zongzong+parseFloat($(this).text());
+        });
+        $('#zongjiage').text(zongzong);
+        // alert(zongzong);
+    };
+    function jia(th) {
+            var shu = $(th).parent().children('span').text();
+            var zongzongjia
+            shu++;
+            $(th).parent().children('span').text(shu);
+            $(th).parent().parent().find('.zongjia').text(shu*$(th).parent().parent().find('.danjia').text());
+            zongzong();
+    };
+
+    function jian(th) {
+        var shu = $(th).parent().children('span').text();
+        shu--;
+        if (shu <= 0) {
+            shu = 0;
+        }
+        $(th).parent().children('span').text(shu);
+        $(th).parent().parent().find('.zongjia').text(shu * $(th).parent().parent().find('.danjia').text());
+        zongzong();
+    };
+
+</script>
+</html>

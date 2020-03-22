@@ -1,0 +1,30 @@
+
+ .divcon {
+     margin-top: 10px;
+     margin-bottom: 10px;
+     float: left;
+     margin-left: 10px;
+ }
+ dd button{
+     border: 2px solid bisque;
+     border-radius: 25px;
+     background-color: #0f1024;
+     color: whitesmoke;
+ }
+ .divs {
+     color: #cc0000;
+ }
+.bb1,.bb2{
+    border: 1px solid black ;
+    border-radius: 25px;
+
+}
+.divb {
+    margin-top:11px;
+}
+.bb1 {
+    margin-left: 18px;
+}
+.bb2 {
+    margin-left: 50px;
+}
