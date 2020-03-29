@@ -2,6 +2,27 @@
 $(function () {
 f();
 f1();
+
+$('#pay').on('click',function () {
+    var address =$('#address').text();
+    var name = $('#name').text();
+    var phone = $('#phone').text();
+   $.ajax({
+       url:"http://localhost:8099/addMoney",
+       data:{address:address,name:name,phone:phone},
+       success:function (data) {
+            if (data=='1') {
+                window.location.href="success.html";
+            }
+            else {
+                alert('提交失败')
+            }
+       },
+       error:function () {
+           alert('服务器异常');
+       }
+   })
+});
 });
 function f() {
     $.ajax({
@@ -40,13 +61,36 @@ function address(th) {
     $('#address').text($(th).find('.buy--address-detail').text());
     $('#name').text($(th).find('.buy-user').text());
     $('#phone').text($(th).find('.buy-phone').text());
-}
+};
 function f1() {
     $.ajax({
-        url: "http://localhost:8099/getM",
+        url: "http://localhost:8099/gem",
+        async:false,
         success:function (data) {
-            $('.pay-sum').text(data);
             $('#J_ActualFee').text(data);
+            f3();
+        },
+        error:function () {
+            alert("服务器异常")
+        }
+    })
+};
+
+function f3() {
+    $.ajax({
+        url: "http://localhost:8099/getYu",
+        async:false,
+        success:function (data) {
+            alert(data);
+            alert($('#J_ActualFee').text());
+            $('.pay-sum').text(data);
+            if (parseInt($('.pay-sum').text()) < parseInt($('#J_ActualFee').text())) {
+                alert($('.pay-sum').text());
+                alert($('#J_ActualFee').text());
+                alert('余额不足无法提交--------------');
+                $('#pay').attr("disabled","disabled");
+                // $('#pay').css("color","black");
+            }
         },
         error:function () {
             alert("服务器异常")

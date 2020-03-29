@@ -7,8 +7,12 @@ package liu_project.controller;
 
 public class 温故知新 {
     public static void main(String[] args) {
-        String mes = "<>";
-        System.out.println(mes.replace("<","9999"));
-        System.out.println(mes.length());
+     for (int i = 0;i<5;i++) {
+         if (i==3) {
+             System.out.println("到三了");
+             break;
+         }
+         System.out.println(i);
+     }
     }
 }

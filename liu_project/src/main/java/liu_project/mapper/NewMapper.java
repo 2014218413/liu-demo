@@ -1,11 +1,10 @@
 package liu_project.mapper;
 
 import liu_project.tables.newShop.Address;
+import liu_project.tables.newShop.DingDanJilu;
+import liu_project.tables.newShop.Food_Name;
 import liu_project.tables.newShop.new_User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -43,4 +42,36 @@ public interface NewMapper {
     //插入地址信息
     @Insert("insert into user_address values (#{username},#{name},#{phone},#{address_},'1','0')")
     void inAddress(String username,String name,String phone,String address_);
+
+    //获取食品1名字
+    @Select("select name_,price,total,image_ from ${name} where state='1'")
+    List<Food_Name> getfn1(@Param("name") String name);
+
+    //注册完成后创建一个账户信息存入 余额
+    @Insert("insert into user_money values(#{name},#{money})")
+    void user_yue (String name,double money);
+
+    //订单记录
+    @Insert("insert into user_money_jilu values (#{name},#{message},#{jine},sysdate,#{dizhi},'1',null)")
+    void user_jilu (String name,String message,double jine,String dizhi);
+
+    //从余额扣除金额
+    @Update("update user_money set yue=yue-#{yue},shijian=sysdate where user_=#{name}")
+    void uyu(String name,double yue);
+
+    //注册成功 的同时设置好余额 0
+    @Insert("insert into user_money values (#{name},#{money},sysdate)")
+    void insertM(String name,double money);
+
+    //查询余额
+    @Select("select distinct yue from user_money where user_=#{name}")
+    double seM(String name);
+
+    //获取订单信息
+    @Select("select message,jine,shi,dizhi,id from user_money_jilu where user_=#{name} and state='1'")
+    List<DingDanJilu> getD(String name);
+
+    //删除订单
+    @Update("update user_money_jilu set state='0' where user_=#{name} and id=#{id}")
+    void dD (String name,int id);
 }

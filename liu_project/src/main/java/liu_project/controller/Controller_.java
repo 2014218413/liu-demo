@@ -2,6 +2,7 @@ package liu_project.controller;
 
 import com.github.pagehelper.PageHelper;
 import liu_project.image.ImgResult;
+import liu_project.mapper.NewMapper;
 import liu_project.mapper.UserMapper;
 import liu_project.tables.Gongneng;
 import liu_project.tables.User;
@@ -39,12 +40,14 @@ public class Controller_ {
     //Mybatis的操作
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    NewMapper newMapper;
     //注册
     @ResponseBody
     @RequestMapping("/register")
     public void register(String username, String password, String email, String phone, String other, String grade,String banji,HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
         userMapper.insertUser(1,""+username,""+password,""+email,""+phone,""+other,"   ",""+grade,""+banji);
-
+        newMapper.insertM(""+username,0);
         httpServletResponse.sendRedirect("/");
     }
     /*
@@ -69,8 +72,18 @@ public class Controller_ {
                 session.setAttribute("password",password);
                 session.setMaxInactiveInterval(60*60*2);
                 //Cookie
-                Cookie cookie = new Cookie("username",username);
-                httpServletResponse.addCookie(cookie);
+                Cookie[] cookies = httpServletRequest.getCookies();
+                for (int i = 0;i<cookies.length;i++) {
+                    if (cookies[i].getName().equals("Car")) {
+                        System.out.println("存在");
+                        break;
+                    };
+                    if (i==cookies.length-1) {
+                        Cookie cookie = new Cookie("Car","");
+                        System.out.println("不存在Cookie，创建");
+                        httpServletResponse.addCookie(cookie);
+                    }
+                }
                 httpServletResponse.sendRedirect("/p");
             }
             else {
@@ -156,7 +169,6 @@ public class Controller_ {
             return "index";
         }
         else {
-            Cookie[] cookies = httpServletRequest.getCookies();
             return "person";
         }
     }

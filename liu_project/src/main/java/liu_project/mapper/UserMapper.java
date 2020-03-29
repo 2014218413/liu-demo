@@ -86,4 +86,6 @@ public interface UserMapper {
     //修改发布的人力资源
     @Update("update personli set renshu=${shu},state_=${sta} where id_=#{id} and user_=#{user_}")
     void updatePerLi(int shu,int sta,String id,String user_);
+
+
 }

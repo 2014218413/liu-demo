@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="../../assets/js/jquery.min.js"></script>
+</head>
+<body>
+<script type="text/html" id="batDemo">
+    <a class="layui-btn layui-btn-xs layui-btn-radius shanchu" lay-event="shanchu">删除</a>
+</script>
+ <table class="layui-hide" id="test" lay-filter="test"></table>
+<script th:inline="none">
+    layui.use(['table'],function () {
+        var table = layui.table;
+        table.render({
+            elem:'#test',
+            url:'http://localhost:8099/getD',
+            parseData:function(res){
+                res.code = "0";
+                res.msg = "";
+                res.data = res;
+                res.count = 0;
+                return res;
+            },
+            defaultToolbar:['filter', 'exports', 'print', {
+                title:'提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            title: '数据',
+            cols:[[
+                {field:'id',title:'编号',style:'color:green'},
+                {field:'message',title:'清单',style:'color:green'},
+                {field:'jine',title:'消费金额',style:'color:green'},
+                {field:'shi',title:'订单时间',style:'color:green'},
+                {field:'dizhi',title:'地址',style:'color:green'},
+                // {field:'didi',title:'操作',template:function (res) {
+                //         return "<button class='layui-btn layui-btn-radius'>刪除</button>"
+                //     }},
+                {fixed:'right',title:'操作',toolbar:'#batDemo',style:'color:green'},
+            ]],
+            page:true
+        });
+        table.on('tool(test)',function (obj) {
+            var data = obj.data;
+            var id = data.id;
+            if (obj.event == 'shanchu') {
+                layer.confirm('是否确定删除', function(){
+                    $.ajax({
+                        url:'http://localhost:8099/dddd',
+                        data:{id:id},
+                        success:function (data) {
+                            alert('删除成功----'+data);
+                            window.location.reload();
+                        },
+                        error:function () {
+                            alert('删除失败')
+                        }
+
+                    });
+                    obj.del();
+                    layer.close(index);
+                });
+
+            }
+        });
+    })
+</script>
+</body>
+<script>
+</script>
+</html>

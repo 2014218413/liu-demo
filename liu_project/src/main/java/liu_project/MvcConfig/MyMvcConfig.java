@@ -23,6 +23,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/new/home/home.html").setViewName("new/home/home");
+                registry.addViewController("/ssss").setViewName("new/home/ss");
+                registry.addViewController("/new/home/success.html").setViewName("new/home/success");
+                registry.addViewController("/new/home/pay.html").setViewName("new/home/pay");
+                registry.addViewController("/new/home/shopcart.html").setViewName("new/home/shopcart");
                 registry.addViewController("/new/person/password.html").setViewName("new/person/password.html");
                 registry.addViewController("/new/person/index.html").setViewName("new/person/index");
                 registry.addViewController("/new/person/information.html").setViewName("new/person/information");
@@ -31,6 +35,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/new/person/bindphone.html").setViewName("new/person/bindphone.html");
                 registry.addViewController("/new/person/email.html").setViewName("new/person/email.html");
                 registry.addViewController("/new/person/address.html").setViewName("new/person/address.html");
+                registry.addViewController("/new/person/order.html").setViewName("new/person/order.html");
             }
 
 //            @Override

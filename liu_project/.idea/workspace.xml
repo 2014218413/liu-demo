@@ -40,14 +40,14 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="DEMO: table" type="942f455b:OraImplModel$Table" />
+        <item name="USER_MONEY: table" type="942f455b:OraImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="LIUSHENGEN: schema" type="3abd1b6a:OraImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="USER_ADDRESS: table" type="942f455b:OraImplModel$Table" />
+        <item name="USER_MONEY_JILU: table" type="942f455b:OraImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -70,9 +70,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Enum" />
         <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Class" />
       </list>
@@ -99,7 +100,8 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../liu_study" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/images" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -108,11 +110,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\images" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\css" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\newImages" />
+      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static" />
       <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\images" />
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets\js" />
-      <recent name="D:\Idea_mingbaile\liu_project\src\main\resources\static\assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -200,17 +202,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a6bc613" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a02c8d64" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a6bc613" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6beb1193" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@1a6bc613" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7f7fea75" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a02c8d64" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@38f307ef" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -348,6 +345,15 @@
       <workItem from="1584499183146" duration="6070000" />
       <workItem from="1584512189503" duration="87000" />
       <workItem from="1584583227162" duration="9312000" />
+      <workItem from="1584623420917" duration="258000" />
+      <workItem from="1584695014565" duration="12377000" />
+      <workItem from="1584757765384" duration="32766000" />
+      <workItem from="1584866712262" duration="18499000" />
+      <workItem from="1584932285326" duration="6221000" />
+      <workItem from="1584941233069" duration="147000" />
+      <workItem from="1585050399625" duration="1349000" />
+      <workItem from="1585212908490" duration="5595000" />
+      <workItem from="1585474890052" duration="12235000" />
     </task>
     <servers />
   </component>
