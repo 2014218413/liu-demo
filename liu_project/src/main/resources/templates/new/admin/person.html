@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>人员管理页面</title>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="../../assets/js/jquery.min.js"></script>
+</head>
+<body>
+<script type="text/html" id="ba01">
+    <a class="layui-btn layui-btn-xs layui-btn-radius zuofei" lay-event="zuofei">作废</a>
+    <a class="layui-btn layui-btn-xs layui-btn-radius huifu" lay-event="huifu">恢复</a>
+</script>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+<script th:inline="none">
+    layui.use(['table'],function () {
+        var table = layui.table;
+        table.render({
+            elem:'#test',
+            url:'http://localhost:8099/setU',
+            parseData:function (res) {
+                res.code='0';
+                res.message='';
+                res.data=res;
+                res.count=0;
+                return res;
+            },
+            defaultToolbar:['filter','exports', 'print',{
+                title:'提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            title: '人员',
+            cols:[[
+                {field:'id',title:'人员编号',style:'color:green'},
+                {field:'username',title:'人员账号',style:'color:green'},
+                {field:'password',title:'人员密码',style:'color:green'},
+                {field:'state',title:'账号状态',style:'color:green'},
+                {field:'shijian',title:'注册时间',style:'color:green'},
+                {field:'shijian',title:'操作',style:'color:green',toolbar:'#ba01'},
+            ]],
+        });
+        table.on('tool(test)',function (obj) {
+           var data = obj.data;
+           var id = data.id;
+           if (obj.event=='zuofei') {
+               layer.confirm('是否确定作废',function () {
+                  $.ajax({
+                      url: 'http://localhost:8099/deU',
+                      data:{id:id},
+                      success:function (data) {
+                          if (data=='1') {
+                              alert('注销成功');
+                              window.location.reload();
+                          }
+                          else {
+                              alert('注销失败')
+                          }
+                      },
+                      error:function () {
+                          alert("服务器异常")
+                      }
+                  });
+
+               });
+           };
+           if (obj.event=='huifu') {
+               layer.confirm('是否确定恢复',function () {
+                   $.ajax({
+                       url: 'http://localhost:8099/huiU',
+                       data:{id:id},
+                       success:function (data) {
+                           if (data=='1') {
+                               alert('恢复成功');
+                               window.location.reload();
+                           }
+                           else {
+                               alert('恢复失败')
+                           }
+                       },
+                       error:function () {
+                           alert('服务器异常')
+                       }
+                   });
+
+               });
+           }
+        });
+    })
+</script>
+</body>
+</html>

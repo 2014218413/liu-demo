@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>充值页面</title>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="../../assets/js/jquery.min.js"></script>
+</head>
+<body>
+用户名<input class="layui-input" id="input01">
+充值金额<input class="layui-input" type="number" id="input02">
+<button class="layui-btn layui-btn-radius" id="tijiao">提交</button>
+</body>
+<script>
+    layui.use(['table'],function () {
+        $('#tijiao').on('click',function () {
+            layer.confirm('是否确定充值',function () {
+                var user = $('#input01').val();
+                var message = $('#input02').val();
+                $.ajax({
+                    url:'http://localhost:8099/chongzhi',
+                    data:{user:user,message:message},
+                    success:function (data) {
+                        if (data=='1') {
+                            alert('充值成功');
+                            window.history.back();
+                        }
+                        else {
+                            alert('充值失败');
+                        }
+                    },
+                    error:function () {
+                        alert('服务器异常');
+                    }
+                })
+            })
+
+        })
+    });
+    // $(function () {
+    //
+    // })
+</script>
+</html>

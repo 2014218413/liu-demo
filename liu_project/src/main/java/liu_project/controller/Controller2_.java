@@ -1,7 +1,9 @@
 package liu_project.controller;
 
+import liu_project.mapper.AdminMapper;
 import liu_project.mapper.UserMapper;
 import liu_project.tables.PersonLi;
+import liu_project.tables.admin.User;
 import liu_project.tables.gongNeng_One.Message_;
 import liu_project.tables.gongNeng_One.YiMai;
 import org.apache.ibatis.annotations.Param;
@@ -22,6 +24,8 @@ import java.util.List;
 public class Controller2_ {
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    AdminMapper adminMapper;
     @RequestMapping("/另起炉灶")
     public String goPersonLi(HttpSession session) {
         if (session.getAttribute("username") == null) {
@@ -100,5 +104,45 @@ public class Controller2_ {
        }
     }
 
+    //管理员页面获取用户
+    @RequestMapping("/setU")
+    @ResponseBody
+    public List<User> seU () {
+        return adminMapper.seu();
+    }
 
+    //管理员注销用户
+    @RequestMapping("/deU")
+    @ResponseBody
+    public String deU (HttpSession httpSession,@RequestParam("id") String id) {
+        int a = Integer.parseInt(id);
+        adminMapper.upu((String) httpSession.getAttribute("username"),a);
+        System.out.println("------------------------------------");
+        return "1";
+    }
+
+    //管理员恢复用户
+    @RequestMapping("/huiU")
+    @ResponseBody
+    public String huiU (HttpSession httpSession,@RequestParam("id") String id) {
+        int a = Integer.parseInt(id);
+        adminMapper.upu2((String) httpSession.getAttribute("username"),a);
+        System.out.println("*********************************");
+        return "1";
+    }
+
+    //金额充值
+    @RequestMapping("/chongzhi")
+    @ResponseBody
+    public String chongzhi (@RequestParam("user") String user,@RequestParam("message") String message) {
+        double jjj = Double.parseDouble(message);
+        try {
+            adminMapper.chongzhi(user,jjj);
+            return "1";
+        }
+        catch (Exception e) {
+            return "0";
+        }
+
+    }
 }
