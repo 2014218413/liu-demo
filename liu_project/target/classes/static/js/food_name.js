@@ -1,4 +1,4 @@
-$(function () {
+    $(function () {
     f();
 });
 function f() {
@@ -191,7 +191,7 @@ function ffn(th) {
         "            <br>\n" +
         "            <span>价格：</span><span class='jiage'>"+$(th).attr('name')+"</span>\n" +
         "            <br>\n" +
-        "            <span>存货：</span><span class='cunhuo'>"+$(th).val()+"</span>\n" +
+        // "            <span>存货：</span><span class='cunhuo'>"+$(th).val()+"</span>\n" +
         "        </div>\n" +
         "        <div class=\"divb\">\n" +
         "            <button class=\"bb1\">立即购买</button>\n" +

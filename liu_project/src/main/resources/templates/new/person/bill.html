@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账单明细</title>
+    <script src="../../assets/js/jquery.min.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <th>充值金额</th>
+        <th>充值时间</th>
+    </tr>
+    <tbody id="001">
+
+    </tbody>
+</table>
+
+<table >
+    <tr>
+        <th>消费明细</th>
+        <th>消费金额</th>
+        <th>消费时间</th>
+    </tr>
+    <tbody id="002">
+
+    </tbody>
+</table>
+<script>
+    $(function () {
+        var html = "";
+        var html2 = "";
+        $.ajax({
+            url:'http://localhost:8099/scb',
+            success:function (data) {
+                for (var i=0;i<data.length;i++) {
+                    html+="<tr>\n" +
+                        "        <td>"+data[i].jine+"</td>\n" +
+                        "        <td>"+data[i].shijian+"</td>\n" +
+                        "    </tr>"
+                }
+                $('#001').html(html);
+            },
+            error:function () {
+                alert('服务器异常')
+            }
+        });
+        $.ajax({
+            url:'http://localhost:8099/sxb',
+            success:function (data) {
+                for (var i=0;i<data.length;i++) {
+                    html2+="<tr>\n" +
+                        "        <td>"+data[i].message+"</td>\n" +
+                        "        <td>"+data[i].jine+"</td>\n" +
+                        "        <td>"+data[i].shi+"</td>\n" +
+                        "    </tr>"
+                }
+                $('#002').html(html2);
+            },
+            error:function () {
+                alert('服务器异常')
+            }
+        });
+    })
+</script>
+</body>
+</html>

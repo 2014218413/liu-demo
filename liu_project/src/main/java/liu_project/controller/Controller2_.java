@@ -3,9 +3,10 @@ package liu_project.controller;
 import liu_project.mapper.AdminMapper;
 import liu_project.mapper.UserMapper;
 import liu_project.tables.PersonLi;
-import liu_project.tables.admin.User;
+import liu_project.tables.admin.*;
 import liu_project.tables.gongNeng_One.Message_;
 import liu_project.tables.gongNeng_One.YiMai;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -138,6 +141,7 @@ public class Controller2_ {
         double jjj = Double.parseDouble(message);
         try {
             adminMapper.chongzhi(user,jjj);
+            adminMapper.chongzhi2(user,jjj);
             return "1";
         }
         catch (Exception e) {
@@ -145,4 +149,113 @@ public class Controller2_ {
         }
 
     }
+
+    //插入举报内容
+    @RequestMapping("/jubao")
+    @ResponseBody
+    public String jubao (HttpSession httpSession,@RequestParam("user") String user,@RequestParam("message") String message) {
+        try {
+            adminMapper.jubao((String) httpSession.getAttribute("username"),user,message);
+            return "1";
+        }
+        catch (Exception e) {
+            return "0";
+        }
+    }
+
+    //管理员查询举报内容
+    @RequestMapping("/seJ")
+    @ResponseBody
+    public List<JuBao> seJ () {
+        return adminMapper.seJ();
+    }
+
+    //管理员查询充值记录
+    @RequestMapping("/seC")
+    @ResponseBody
+    public List<ChongZhiJiLu> seC () {
+        return adminMapper.seC();
+    }
+
+    //管理员查询订单记录
+    @RequestMapping("/seDD")
+    @ResponseBody
+    public List<DingDan> seDD () {
+        return adminMapper.seDD();
+    }
+    //管理员作废订单记录
+    @RequestMapping("/upDD")
+    @ResponseBody
+    public String upDD (@RequestParam("id") int id) {
+        try {
+            adminMapper.upDD(id);
+            return "1";
+        }
+        catch (Exception e) {
+            return "0";
+        }
+
+    }
+    //管理员恢复订单记录
+    @RequestMapping("/upDDDD")
+    @ResponseBody
+    public String upDDDD (@RequestParam("id") int id) {
+        try {
+            adminMapper.upDDDD(id);
+            return "1";
+        }
+        catch (Exception e) {
+            return "0";
+        }
+
+    }
+
+    //管理员登录
+    @RequestMapping("/guanliyuan")
+    @ResponseBody
+    void guanliyuan (@RequestParam("username") String username, @RequestParam("password") String password, HttpServletResponse httpServletResponse,HttpSession httpSession) throws IOException {
+        int a = adminMapper.seAdmin(username,password);
+        if (a<1) {
+            httpSession.setAttribute("admin","123");
+            httpServletResponse.sendRedirect("/");
+
+        }
+        else {
+            httpSession.setAttribute("admin",username);
+            httpServletResponse.sendRedirect("/new/admin/index.html");
+        }
+    }
+
+    //管理员中的那个账单明细里面的充值记录
+    @RequestMapping("/scb")
+    @ResponseBody
+    List<ChongzhiJilu_Biao> scb (HttpSession httpSession) {
+        return adminMapper.scb((String) httpSession.getAttribute("username"));
+    }
+
+    //管理员中的那个账单明细里面的充值记录
+    @RequestMapping("/sxb")
+    @ResponseBody
+    List<Xiaofei_Biao> sxb (HttpSession httpSession) {
+        return adminMapper.sxb(((String) httpSession.getAttribute("username")));
+    }
+
+    //管理员注册
+    @RequestMapping("/guanz")
+    @ResponseBody
+    public int guanz (@RequestParam("value") String value) {
+        return adminMapper.guanz(value);
+    }
+
+    //管理员注册真正的
+    @ResponseBody
+    @RequestMapping("/guanzz")
+
+    public void guanzz (@RequestParam("username") String username,@RequestParam("password") String password,HttpServletResponse httpServletResponse) throws IOException {
+
+            adminMapper.insertguan(username,password);
+           httpServletResponse.sendRedirect("/");
+
+    }
+
 }

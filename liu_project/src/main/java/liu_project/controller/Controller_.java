@@ -362,6 +362,9 @@ public class Controller_ {
             case "悬赏任务":
                 userMapper.gaoumai("rewardtask"," ",id);
                 break;
+            case "物品交换":
+                userMapper.gaoumai("changewu"," ",id);
+                break;
         }
 
     }

@@ -8,6 +8,88 @@
     <script src="../../assets/js/jquery.min.js"></script>
 </head>
 <body>
+<script type="text/html" id="ba01">
+    <a class="layui-btn layui-btn-xs layui-btn-radius zuofei" lay-event="zuofei">作废</a>
+    <a class="layui-btn layui-btn-xs layui-btn-radius huifu" lay-event="huifu">恢复</a>
+</script>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+<script th:inline="none">
+    layui.use(['table'],function () {
+        var table = layui.table;
+        table.render({
+            elem:'#test',
+            url:'http://localhost:8099/seDD',
+            parseData:function (res) {
+                res.code='0';
+                res.message='';
+                res.data=res;
+                res.count=0;
+                return res;
+            },
+            defaultToolbar:['filter','exports', 'print',{
+                title:'提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            title: '人员',
+            cols:[[
+                {field:'id',title:'订单编号',style:'color:green'},
+                {field:'user_',title:'购买人',style:'color:green'},
+                {field:'message',title:'购买清单',style:'color:green'},
+                {field:'jine',title:'花费',style:'color:green'},
+                {field:'shi',title:'时间',style:'color:green'},
+                {field:'dizhi',title:'收货地址',style:'color:green'},
+                {field:'state',title:'订单状态',style:'color:green'},
+                {field:'state',title:'操作',style:'color:green',toolbar:'#ba01'},
+            ]],
+        });
+        table.on('tool(test)',function (obj) {
+            var data = obj.data;
+            var id = data.id;
+            if (obj.event=='zuofei') {
+                layer.confirm('是否确定作废',function () {
+                    $.ajax({
+                        url: 'http://localhost:8099/upDD',
+                        data:{id:id},
+                        success:function (data) {
+                            if (data=='1') {
+                                alert('删除成功');
+                                window.location.reload();
+                            }
+                            else {
+                                alert('删除失败')
+                            }
+                        },
+                        error:function () {
+                            alert("服务器异常")
+                        }
+                    });
 
+                });
+            };
+            if (obj.event=='huifu') {
+                layer.confirm('是否确定恢复',function () {
+                    $.ajax({
+                        url: 'http://localhost:8099/upDDDD',
+                        data:{id:id},
+                        success:function (data) {
+                            if (data=='1') {
+                                alert('恢复成功');
+                                window.location.reload();
+                            }
+                            else {
+                                alert('恢复失败')
+                            }
+                        },
+                        error:function () {
+                            alert('服务器异常')
+                        }
+                    });
+
+                });
+            }
+        });
+    })
+</script>
 </body>
 </html>

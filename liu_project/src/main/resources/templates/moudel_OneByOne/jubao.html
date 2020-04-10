@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>举报</title>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="../assets/js/jquery.min.js"></script>
+</head>
+<body>
+<input class="layui-input" disabled="disabled" placeholder="请如实填写，在核查后发现造假 将进行封号处理" style="color: red;font-weight: bold">
+<br>
+<br>
+想要举报的人的账号<input class="layui-input" id="input01">
+举报原因<input class="layui-input" id="input02">
+<button class="layui-btn layui-btn-radius" id="button01">提交举报</button>
+</body>
+<script>
+    layui.use(['table'],function () {
+        $('#button01').on('click',function () {
+            var user = $('#input01').val();
+            var message = $('#input02').val();
+            layer.confirm('是否确定提交',function () {
+                $.ajax({
+                    url:'http://localhost:8099/jubao',
+                    data:{user:user,message:message},
+                    success:function (data) {
+                        if (data=='1') {
+                            alert('举报成功');
+                            window.history.back();
+                        }
+                        else {
+                            alert('举报失败');
+                        }
+                    },
+                    error:function () {
+                        alert("服务器异常")
+                    }
+                })
+            })
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录</title>
+    <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
+    <script src="../../assets/js/jquery.min.js"></script>
+</head>
+<body>
+<button id="button01" class="layui-btn layui-btn-radius">管理员注册</button>
+<button id="button02" class="layui-btn layui-btn-danger layui-btn-radius">管理员登录</button>
+<!--<form class="layui-form" method="post" action="http://localhost:8099/guanliyuan">-->
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">账号</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <input type="text" class="layui-input" lay-verify="user" name="username">-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">密码</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <input type="password" class="layui-input" lay-verify="user" name="password">-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <button class="layui-btn" type="submit">提交</button>-->
+<!--</form>-->
+</body>
+<script>
+   layui.use(['layer','form'],function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        form.verify({
+           tt:function (value) {
+               if (value.length<5) {
+                   return "长度小于5"
+               }
+
+           },
+            // tt2:function (value) {
+            //     if (value.length>5) {
+            //         $.ajax({
+            //             url:'http://localhost:8099/guanz',
+            //             data:{value:value},
+            //             success:function (data) {
+            //               if (data==0) {
+            //                   alert('----------------------');
+            //                   return "账号重复"
+            //               }
+            //             },
+            //             error:function () {
+            //                 alert('系统异常')
+            //             }
+            //         })
+            //     }
+            //     else {
+            //         return "长度不够"
+            //     }
+            //
+            // },
+            pass:[
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+
+
+        });
+       $('#button02').on('click',function () {
+           //示范一个公告层
+           layer.open({
+               type: 1
+               ,title: false //不显示标题栏
+               ,closeBtn: false
+               ,area: '300px;'
+               ,shade: 0.8
+               ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+               // ,btn: ['提交', '取消']
+               ,btnAlign: 'c'
+               ,moveType: 1 //拖拽模式，0或者1
+               ,content: '<form class="layui-form" method="post" action="http://localhost:8099/guanliyuan">\n' +
+                   '    <div class="layui-form-item">\n' +
+                   '        <label class="layui-form-label">账号</label>\n' +
+                   '        <div class="layui-input-block">\n' +
+                   '            <input type="text" class="form-control" lay-verify="tt" name="username">\n' +
+                   '        </div>\n' +
+                   '\n' +
+                   '    </div>\n' +
+                   '    <div class="layui-form-item">\n' +
+                   '        <label class="layui-form-label">密码</label>\n' +
+                   '        <div class="layui-input-block">\n' +
+                   '            <input type="password" class="form-control" lay-verify="pass" name="password">\n' +
+                   '        </div>\n' +
+                   '\n' +
+                   '    </div>\n' +
+                   '    <button class="layui-btn" type="submit" lay-submit="">提交</button>\n' +
+                   '</form>'
+               // ,success: function(layero){
+               //     var btn = layero.find('.layui-layer-btn');
+               //     btn.find('.layui-layer-btn0').attr({
+               //         href: 'http://www.layui.com/'
+               //         ,target: '_blank'
+               //     });
+               // }
+           });
+       });
+
+
+
+       $('#button01').on('click',function () {
+           //示范一个公告层
+           layer.open({
+               type: 1
+               ,title: false //不显示标题栏
+               ,closeBtn: false
+               ,area: '300px;'
+               ,shade: 0.8
+               ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+               // ,btn: ['提交', '取消']
+               ,btnAlign: 'c'
+               ,moveType: 1 //拖拽模式，0或者1
+               ,content: '<form class="layui-form" method="post" action="http://localhost:8099/guanzz">\n' +
+                   '    <div class="layui-form-item">\n' +
+                   '        <label class="layui-form-label">账号</label>\n' +
+                   '        <div class="layui-input-block">\n' +
+                   '            <input type="text" class="form-control" lay-verify="tt" name="username" id="input001" onblur="fff(this)">\n' +
+                   '        </div>\n' +
+                   '\n' +
+                   '    </div>\n' +
+                   '    <div class="layui-form-item">\n' +
+                   '        <label class="layui-form-label">密码</label>\n' +
+                   '        <div class="layui-input-block">\n' +
+                   '            <input type="password" class="form-control" lay-verify="pass" name="password">\n' +
+                   '        </div>\n' +
+                   '\n' +
+                   '    </div>\n' +
+                   '    <button class="layui-btn" type="submit" lay-submit="">提交</button>\n' +
+                   '</form>'
+               // ,success: function(layero){
+               //     var btn = layero.find('.layui-layer-btn');
+               //     btn.find('.layui-layer-btn0').attr({
+               //         href: 'http://www.layui.com/'
+               //         ,target: '_blank'
+               //     });
+               // }
+           });
+       });
+
+   });
+   function fff(th) {
+        var value = $(th).val();
+       $.ajax({
+           url:'http://localhost:8099/guanz',
+           data:{value:value},
+           success:function (data) {
+               if (data!='0') {
+                   alert('账号重复');
+                   $(th).val("-----");
+               }
+           },
+           error:function () {
+               alert('系统异常')
+           }
+       })
+   }
+</script>
+</html>

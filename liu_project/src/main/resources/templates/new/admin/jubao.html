@@ -2,12 +2,39 @@
 <html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
 <head>
     <meta charset="UTF-8">
-    <title>举报页面</title>
+    <title>举报信息</title>
     <script th:src="@{/webjars/layui/2.5.5/layui.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/layui/2.5.5/css/layui.css}">
     <script src="../../assets/js/jquery.min.js"></script>
 </head>
 <body>
-
+<table class="layui-hide" id="test"></table>
+<script th:inline="none">
+    layui.use(['table'],function () {
+        var table = layui.table;
+        table.render({
+            elem:'#test',
+            url:'http://localhost:8099/seJ',
+            parseData:function (res) {
+              res.code='0';
+              res.message='';
+              res.data=res;
+              res.count=0;
+              return res;
+            },
+            defaultToolbar:['filter','exports','print',{
+                title:'提示',
+                layEvent: 'LAYTABLE_TIPS',
+                icon: 'layui-icon-tips'
+            }],
+            title:'信息',
+            cols:[[
+                {field:'jubaoren',title:'举报人',style:'color:green'},
+                {field:'beijubaoren',title:'被举报人',style:'color:green'},
+                {field:'message',title:'举报事件',style:'color:green'},
+            ]]
+        });
+    });
+</script>
 </body>
 </html>
