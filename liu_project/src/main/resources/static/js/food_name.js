@@ -194,7 +194,7 @@ function ffn(th) {
         // "            <span>存货：</span><span class='cunhuo'>"+$(th).val()+"</span>\n" +
         "        </div>\n" +
         "        <div class=\"divb\">\n" +
-        "            <button class=\"bb1\">立即购买</button>\n" +
+        // "            <button class=\"bb1\">立即购买</button>\n" +
         "            <button class=\"bb2\" onclick='addCar(this)'>加入购物车</button>\n" +
         "        </div>\n" +
         "    </div>");

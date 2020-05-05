@@ -234,6 +234,7 @@
     </table>
     <table id="56" parent="14" name="FOOD_SHUSHI">
       <ObjectId>80865</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-03-21</CreatedTimestamp>
       <ModifiedTimestamp>2020-03-21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
@@ -246,12 +247,14 @@
     </table>
     <table id="58" parent="14" name="FOOD_TANGGUO">
       <ObjectId>80868</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-03-21</CreatedTimestamp>
       <ModifiedTimestamp>2020-03-21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
     <table id="59" parent="14" name="FOOD_YINYONGPIN">
       <ObjectId>80863</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-03-21</CreatedTimestamp>
       <ModifiedTimestamp>2020-03-21</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>

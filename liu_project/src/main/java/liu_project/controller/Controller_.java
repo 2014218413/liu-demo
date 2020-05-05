@@ -1,6 +1,8 @@
 package liu_project.controller;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import liu_project.image.ImgResult;
 import liu_project.mapper.NewMapper;
 import liu_project.mapper.UserMapper;
@@ -127,9 +129,10 @@ public class Controller_ {
     * */
     @ResponseBody
     @RequestMapping("/two")
-    public List<XuanShang> getTwo() {
-//        PageHelper.startPage(pn,ps);
+    public List<XuanShang> getTwo(@RequestParam(value = "page") int pn,@RequestParam("limit") int ps) {
+//        PageHelper.startPage(pn,ps);     加上这个就行了
         return userMapper.getTwoHand("twohand");
+
     }
     @ResponseBody
     @RequestMapping("/twoS")
@@ -143,8 +146,8 @@ public class Controller_ {
     }
     @ResponseBody
     @RequestMapping("/change")
-    public List<XuanShang> getChange() {
-//        PageHelper.startPage(pn,ps);
+    public List<XuanShang> getChange(@RequestParam(value = "page") int pn,@RequestParam("limit") int ps) {
+        PageHelper.startPage(pn,ps);
         return userMapper.getTwoHand("changewu");
     }
 
@@ -384,6 +387,18 @@ public class Controller_ {
     @RequestMapping("mp")
     public String mp () {
         return "person/myProduct";
+    }
+
+    //测试文件上传
+    @RequestMapping("/ceshi")
+    public String ceshi () {
+        return "/ceshi/ceshi";
+    }
+    @RequestMapping("/ceshi2")
+    public String ceshi2 (@RequestParam("file") MultipartFile file) {
+//        System.out.println(file.getName());
+        System.out.println(file.getOriginalFilename());
+        return "/ceshi/ceshiOk";
     }
 
 }
